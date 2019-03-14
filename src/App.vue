@@ -19,4 +19,7 @@
 </script>
 
 <style lang="stylus" scoped>
+    #app
+        width 100%
+        background-color: #f2f2f2;
 </style>

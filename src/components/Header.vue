@@ -33,4 +33,6 @@
         .menu-wrapper
             width 1140px
             margin 0 auto
+            .el-menu
+                border-bottom none
 </style>

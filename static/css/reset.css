@@ -56,3 +56,7 @@ table {
 a {
     text-decoration: none;
 }
+
+* {
+    font-family: "Microsoft YaHei";
+}
