@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, {Store} from 'vuex'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
+const store = new Store({
     state: {},
     mutations: {}
 })
