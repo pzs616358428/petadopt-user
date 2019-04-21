@@ -1,111 +1,22 @@
 <template>
-    <div class="knowledge">
-        <div id="ct" class="ct2 wp inside_box cl">
-            <div class="mn">
-                <div class="bm">
-                    <!-- 文章列表 begin -->
-                    <div class="list_new Framebox cl">
-                    
-                        <div class="news_list cl" v-for="(item,index) in content" :key="index">
-                            <div class="cl">
-                                <div class="new_body">
-                                    <h2>{{item.title}}</h2>
-                                    <div class="meta"><span class="meta-class"></span><span class="meta-date">{{item.date}}</span>
-                                    </div>
-                                    <p>{{item.event}}</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                        <div class="news_list cl" v-for="(i,k) in imgContent" :key="k">
-                            <div class="cl">
-                                <div class="new_pic">
-                                    <div class="bubba"><img :src="i.imgUrl" :alt="i.title"></div>
-                                </div>
-                                <div class="new_body">
-                                    <h2>{{i.title}}</h2>
-                                    <div class="meta"><span class="meta-class"></span><span class="meta-date">{{i.date}}</span>
-                                    </div>
-                                    <p>{{i.event}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        
-                
-                    </div>
-                    <!-- 文章列表 end -->
-                   <div id="listloopbottom" class="area"></div>
-                </div>
-                
-            </div>
-            
-    
-            <div class="sd pph">
-                <div class="drag">
-                    <div id="diyrighttop" class="area"></div>
-                </div>
-        
-                <!-- 分类 -->
-                <div class="list_box cl" style="margin: 0;">
-                    <div class="tit01 cl" style="margin: 11px 0 20px 0;">
-                        <h2>下级分类</h2>
-                    </div>
-                    <div class="portal_sort Framebox2 cl" style="margin: 0 0 15px 0;">
-                        <ul>
-                            <li>狗</li>
-                            <li>猫</li>
-                            <li>水族</li>
-                            <li>爬行</li>
-                            <li>昆虫</li>
-                            <li>鸟</li>
-                            <li>鼠</li>
-                            <li>兔</li>
-                            <li>其他</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- 推荐阅读 -->
-                <div class="sbody cl" style="margin: 10px 0 0 0;">
-                    <div id="sbody" class="area"><div id="frameHI7cRJ" class="frame move-span cl frame-1"><div id="frameHI7cRJ_left" class="column frame-1-c"><div id="frameHI7cRJ_left_temp" class="move-span temp"></div><div id="portal_block_60" class="block move-span"><div id="portal_block_60_content" class="dxb_bc">      <div class="tit01 cl">
-                        <h2>推荐阅读</h2>
-                    </div>
-                        <div class="bd Framebox2 cl">
-                            <ul>
-                                <li>
-                                    <h3>长春宠物文化节 | 关爱宠物健康与福祉，第三届北部宠物医师大会全面升级</h3>
-                                    <div class="pic"><img src="http://sc.chgie.com/u/cms/cips/201902/25113149aeof.jpg" width="auto" height="auto" alt="长春宠物文化节 | 关爱宠物健康与福祉，第三届北部宠物医师大会全面升级"></div>
-                                    <p>随着国民生活水平的提高，宠物在中国正在走进千家万户，成为都市人高层次精神追求的一种“心灵呵护”。在中国宠物市场日渐繁荣的今天，如何关爱小动物、人与宠物如何和谐共处，文明养宠，这些问题日益受到社会的关注。
-                                        互动和交流，凝聚人心、共谋发展，推进宠物医疗行业的发展，提高从业人员职业素养，为中国北部地区带来优质的医疗及宠物用品。</p>
-                                </li>
-                                <li>
-                                    <h3>2019中国宠物文化节战略升级，五城联动点燃消费市场</h3>
-                                    <div class="pic"><img src="http://sc.chgie.com/u/cms/cips/201901/21132707sw39.jpg" width="auto" height="auto" alt="2019中国宠物文化节战略升级，五城联动点燃消费市场"></div>
-                                    <p>中国宠物文化节是由有着23年专业会展经验的长城宠物展精心打造，成为中国首个将大宠物概念全部涵盖的全国宠物主题巡回展。 中国宠物文化节重在宠物品牌产品的区域销售渠道下沉同时，强调消费者通过现场的活动参与和互动而了解产品.
-                                        2019年，迎来了一个全新的开始，中国宠物文化节全面起航，将在五大城市点燃梦想，携手千余品牌商打造国内爱宠人士狂欢盛典。</p>
-                                </li>
-                            </ul>
-                        </div>
-            
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <el-pagination
-            :current-page="1"
-            :page-size="9"
-            layout="total, sizes, prev, pager, next, jumper"
-            :total="72">
-        </el-pagination>
-    </div>
+    <common-knowledge :content="content" :imgContent="imgContent" :asideContent="asideContent">
+        <h2 slot="title">下级分类</h2>
+        <ul slot="list">
+            <li>狗</li>
+            <li>猫</li>
+            <li>水族</li>
+            <li>爬行</li>
+            <li>昆虫</li>
+            <li>鸟</li>
+            <li>鼠</li>
+            <li>兔</li>
+            <li>其他</li>
+        </ul>
+    </common-knowledge>
 </template>
 
 <script>
+    import CommonKnowledge from '../../components/knowledge'
     export default {
         name: "Knowledge",
         data() {
@@ -155,128 +66,24 @@
                     date:"知识 2018-10-10 16:59",
                     imgUrl:"http://www.petly.net/data/attachment/portal/201512/16/200017lgvx6vogovt9omoo.gif",
                     event:"不少猫奴都遇到过一个同样的问题，喵星人因为犯了错误而受到指责，就会变的闷闷不乐的。"
+                }],
+                asideContent:[{
+                    title:"长春宠物文化节 | 关爱宠物健康与福祉，第三届北部宠物医师大会全面升级",
+                    imgUrl:"http://sc.chgie.com/u/cms/cips/201902/25113149aeof.jpg",
+                    content:"随着国民生活水平的提高，宠物在中国正在走进千家万户，成为都市人高层次精神追求的一种“心灵呵护”。在中国宠物市场日渐繁荣的今天，如何关爱小动物、人与宠物如何和谐共处，文明养宠，这些问题日益受到社会的关注。互动和交流，凝聚人心、共谋发展，推进宠物医疗行业的发展，提高从业人员职业素养，为中国北部地区带来优质资源。"
+                },{
+                    title:"2019中国宠物文化节战略升级，五城联动点燃消费市场",
+                    imgUrl:"",
+                    content:"中国宠物文化节是由有着23年专业会展经验的长城宠物展精心打造，成为中国首个将大宠物概念全部涵盖的全国宠物主题巡回展。中国宠物文化节重在宠物品牌产品的区域销售渠道下沉同时，强调消费者通过现场的活动参与和互动而了解产品。2019年，迎来了一个全新的开始，中国宠物文化节全面起航，将在五大城市点燃梦想，携手千余品牌商打造国内爱宠人士狂欢盛典。"
                 }]
                 
             }
+        },
+        components:{
+            CommonKnowledge
         }
     }
 </script>
 
 <style lang="stylus" scoped>
-    #wp .wp
-        width auto
-    #ct
-        min-height 300px
-    .inside_box
-        background none
-    .wp
-        margin 0 auto
-        width 960px
-    .ct2 .mn
-        float left
-        margin-top 40px
-        margin-left -70px
-        width 810px
-        padding 15px 0 0 0
-        border 1px solid #E6E6E6
-        box-shadow 0 0 4px #ECECEC
-        background #FFFFFF
-        .bm
-            margin-bottom 10px
-        .Framebox
-            padding 10px 20px
-        .news_list
-            margin-bottom 25px
-            padding-bottom 25px
-            border-bottom 1px solid #EEEEEE
-            .new_body
-                font-size 14px
-                color #999999
-                line-height 26px
-            h2
-                color #444444
-                font-size 18px
-                font-weight 600
-                margin-bottom 10px
-                line-height 25px
-            .meta
-                margin-top 10px
-            p
-                margin-top 10px
-                font-size 14px
-                line-height 22px
-                color  #777777
-            .new_pic
-                width 265px
-                height 170px
-                overflow hidden
-                float left
-                margin-right 20px
-                display table-cell
-                vertical-align middle
-                text-align center
-                .bubba
-                    width 265px
-                    height 170px
-                    img
-                      width 100%
-                      height 100%
-    
-    .sd
-        position absolute
-        top 100px
-        right 80px
-        width 260px
-        padding 0 20px
-        border 1px solid #E6E6E6
-        box-shadow 0 0 4px #ECECEC
-        background #FFFFFF
-        .tit01
-            height 50px
-            line-height 50px
-            border-bottom 1px solid #E8E8E8
-            position relative
-        h2
-            color #333333
-            font-weight bolder
-        .Framebox2
-            padding 10px 0
-        .portal_sort li
-            float left
-            margin 0 10px 5px 0
-            text-decoration none
-            padding 2px 12px
-            font-size 14px
-            color #FFFFFF
-            background #555555
-        .sbody .bd li
-            width 250px
-            float left
-            overflow hidden
-            padding-bottom 10px
-            margin-bottom 10px
-            border-bottom 1px solid #EEEEEE
-            h3
-                padding-bottom 8px
-                color #303030ed
-            .pic
-                width 180px
-                height 186px
-                float left
-                img
-                    width 100%
-                    height 100%
-            p
-                text-indent 20px
-                line-height 24px
-                color #8C8C8C
-                margin 10px 0
-    .cl:after
-        content "."
-        display block
-        height 0
-        clear both
-        visibility hidden
-    .el-pagination
-        margin 20px 0 30px 250px
 </style>
