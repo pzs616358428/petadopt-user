@@ -22,6 +22,10 @@
                 activeIndex: '/',
                 defaultRouter: true
             }
+        },
+        created() {
+            // 初始化activeIndex
+            this.activeIndex = this.$route.path;
         }
     }
 </script>
