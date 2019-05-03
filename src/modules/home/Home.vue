@@ -17,7 +17,9 @@
                     </el-carousel-item>
                 </el-carousel>
             </div>
-            <div class="content-right">y</div>
+            <div class="content-right">
+
+            </div>
         </div>
     </div>
 </template>

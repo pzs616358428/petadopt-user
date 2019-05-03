@@ -11,14 +11,21 @@
 
 <script>
     import ArticleList from '../../components/ArticleList';
+    import {mapMutations} from 'vuex';
 
     export default {
         name: "Encyclopedias",
         data() {
             return {}
         },
+        methods: {
+            ...mapMutations(['updateEncyclopediasContent'])
+        },
         components: {
             ArticleList
+        },
+        created() {
+            this.updateEncyclopediasContent();
         }
     }
 </script>

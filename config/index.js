@@ -10,7 +10,12 @@ module.exports = {
         // Paths
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
-        proxyTable: {},
+        proxyTable: {
+            '/petadopt/member/article/articleList': {
+                changeOrigin: true,
+                target: 'http://39.106.45.38:8888'
+            }
+        },
 
         // Various Dev Server settings
         host: 'localhost', // can be overwritten by process.env.HOST
