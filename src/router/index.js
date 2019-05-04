@@ -9,6 +9,7 @@ import AssistRaise from '../modules/assistraise/AssistRaise';
 import ReturnVisit from '../modules/returnvisit/ReturnVisit';
 import Knowledge from '../modules/knowledge/Knowledge';
 import Encyclopedias from '../modules/encyclopedias/Encyclopedias';
+import Article from '../modules/article/Article';
 
 export default new Router({
     routes: [
@@ -36,6 +37,10 @@ export default new Router({
             path: '/encyclopedias',
             component: Encyclopedias
         },
+        {
+            path: '/article/:articleId',
+            component: Article
+        }
     ],
     mode: 'history'
 });

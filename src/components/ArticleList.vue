@@ -7,7 +7,7 @@
                         <img :src="article.mainImage">
                     </div>
                     <div class="content-wrapper">
-                        <h1 class="title">{{article.title}}</h1>
+                        <router-link :to="{path: '/article/' + article.articleId}" target="_blank" class="title">{{article.title}}</router-link>
                         <p class="meta">
                             <span class="meta-class">{{article.animalCategory.categoryName}}</span>
                             <span class="meta-date">{{article.createTime}}</span>
