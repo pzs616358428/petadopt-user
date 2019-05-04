@@ -1,22 +1,34 @@
 import Vue from 'vue';
 import Vuex, {Store} from 'vuex';
-import axios from 'axios';
 
 Vue.use(Vuex);
 
 const store = new Store({
     state: {
         encyclopediasContent: {},
-        knowledgeContent: {}
+        knowledgeContent: {},
+        animalCategoryList: []
     },
     mutations: {
-        updateEncyclopediasContent(state, pageNum, animalCategoryName) {
-            axios.get('/petadopt/member/article/articleList').then((res) => {
-            });
+        updateEncyclopediasContent(state, content) {
+            state.encyclopediasContent = content;
         },
-        updateKnowledgeContent(state, pageNum, animalCategoryName) {
-            axios.get('/petadopt/member/article/articleList').then((res) => {
-            });
+        updateKnowledgeContent(state, content) {
+            state.knowledgeContent = content;
+        },
+        initAnimalCategoryList(state, list) {
+            state.animalCategoryList = list;
+        }
+    },
+    getters: {
+        getEncyclopediasContent(state) {
+            return state.encyclopediasContent;
+        },
+        getKnowledgeContent(state) {
+            return state.knowledgeContent;
+        },
+        getAnimalCategoryList(state) {
+            return state.animalCategoryList;
         }
     }
 });

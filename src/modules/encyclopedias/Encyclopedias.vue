@@ -4,28 +4,77 @@
             百科
         </h1>
         <div class="article-list-wrapper">
-            <article-list></article-list>
+            <article-list :content="encyclopediasContent" @current-change="pageChange" @changeAnimalCategory="changeAnimalCategory"></article-list>
         </div>
     </div>
 </template>
 
 <script>
     import ArticleList from '../../components/ArticleList';
-    import {mapMutations} from 'vuex';
+    import {mapMutations, mapGetters} from 'vuex';
 
     export default {
         name: "Encyclopedias",
         data() {
-            return {}
+            return {
+                animalCategoryName: ''
+            }
         },
         methods: {
-            ...mapMutations(['updateEncyclopediasContent'])
+            ...mapMutations(['updateEncyclopediasContent']),
+            _initEncyclopediasContent(pageNum = 1) {
+                if (this.animalCategoryName) {
+                    // 加载百科文章数据
+                    this.$axios.get(`/petadopt/member/article/articleList?articleCategoryName=百科&pageNum=${pageNum}&animalCategoryName=${this.animalCategoryName}`).then((res) => {
+                        const data = res.data;
+                        if (data.status == 0) {
+                            // 调用方法将值设置到vuex上
+                            this.updateEncyclopediasContent(data.data);
+                        } else {
+                            this.$notify({
+                                title: '警告',
+                                message: data.message,
+                                type: 'error'
+                            });
+                        }
+                    });
+                } else {
+                    // 加载百科文章数据
+                    this.$axios.get(`/petadopt/member/article/articleList?articleCategoryName=百科&pageNum=${pageNum}`).then((res) => {
+                        const data = res.data;
+                        if (data.status == 0) {
+                            // 调用方法将值设置到vuex上
+                            this.updateEncyclopediasContent(data.data);
+                        } else {
+                            this.$notify({
+                                title: '警告',
+                                message: data.message,
+                                type: 'error'
+                            });
+                        }
+                    });
+                }
+            },
+            pageChange(val) {
+                this._initEncyclopediasContent(val);
+            },
+            changeAnimalCategory(categoryName) {
+                if (this.animalCategoryName != categoryName) {
+                    this.animalCategoryName = categoryName;
+                    this._initEncyclopediasContent();
+                }
+            }
+        },
+        computed: {
+            ...mapGetters({
+                encyclopediasContent: 'getEncyclopediasContent'
+            })
         },
         components: {
             ArticleList
         },
         created() {
-            this.updateEncyclopediasContent();
+            this._initEncyclopediasContent();
         }
     }
 </script>

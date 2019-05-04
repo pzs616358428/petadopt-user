@@ -2,162 +2,27 @@
     <div class="article-list">
         <div class="content-left">
             <div class="article-wrapper">
-                <article class="article">
+                <article class="article" v-for="article in content.list" :key="article.articleId">
                     <div class="img-wrapper">
-                        <img src="http://pq55ce8xx.bkt.clouddn.com/bdb5dcc0-92f1-45a9-b015-1d0fc51f9c8b">
+                        <img :src="article.mainImage">
                     </div>
                     <div class="content-wrapper">
-                        <h1 class="title">马恩岛猫</h1>
+                        <h1 class="title">{{article.title}}</h1>
                         <p class="meta">
-                            <span class="meta-class">猫</span>
-                            <span class="meta-date">2019-5-02 14:52</span>
+                            <span class="meta-class">{{article.animalCategory.categoryName}}</span>
+                            <span class="meta-date">{{article.createTime}}</span>
                         </p>
-                        <p class="description">
-                            马恩岛猫（英文名称：Manx），为一种原产于英国马恩岛（马恩岛）的猫。这种猫的奇特之处在于，真正的纯种马恩岛猫是完全没有尾巴的，在普通猫尾巴的位置只有一个凹痕。在传说中，马恩岛猫由于较其他动物晚了一步搭上诺亚方舟，尾巴被门夹到，成为了无尾猫。不过在繁殖过程中，也能产生小尾、残尾、突尾的马恩岛猫。此外，马恩岛的猫的脊椎也较普通猫为短。马恩岛猫体格健壮，较为长寿，且非常聪颖，是知名的宠物猫品种。其长毛品种，即威尔士猫。
-                        </p>
-                    </div>
-                </article>
-                <article class="article">
-                    <div class="img-wrapper">
-                        <img src="http://pq55ce8xx.bkt.clouddn.com/bdb5dcc0-92f1-45a9-b015-1d0fc51f9c8b">
-                    </div>
-                    <div class="content-wrapper">
-                        <h1 class="title">马恩岛猫</h1>
-                        <p class="meta">
-                            <span class="meta-class">猫</span>
-                            <span class="meta-date">2019-5-02 14:52</span>
-                        </p>
-                        <p class="description">
-                            马恩岛猫（英文名称：Manx），为一种原产于英国马恩岛（马恩岛）的猫。这种猫的奇特之处在于，真正的纯种马恩岛猫
-                        </p>
-                    </div>
-                </article>
-                <article class="article">
-                    <div class="img-wrapper">
-                        <img src="http://pq55ce8xx.bkt.clouddn.com/bdb5dcc0-92f1-45a9-b015-1d0fc51f9c8b">
-                    </div>
-                    <div class="content-wrapper">
-                        <h1 class="title">马恩岛猫</h1>
-                        <p class="meta">
-                            <span class="meta-class">猫</span>
-                            <span class="meta-date">2019-5-02 14:52</span>
-                        </p>
-                        <p class="description">
-                            马恩岛猫（英文名称：Manx），为一种原产于英国马恩岛（马恩岛）的猫。这种猫的奇特之处在于，真正的纯种马恩岛猫
-                        </p>
-                    </div>
-                </article>
-                <article class="article">
-                    <div class="img-wrapper">
-                        <img src="http://pq55ce8xx.bkt.clouddn.com/bdb5dcc0-92f1-45a9-b015-1d0fc51f9c8b">
-                    </div>
-                    <div class="content-wrapper">
-                        <h1 class="title">马恩岛猫</h1>
-                        <p class="meta">
-                            <span class="meta-class">猫</span>
-                            <span class="meta-date">2019-5-02 14:52</span>
-                        </p>
-                        <p class="description">
-                            马恩岛猫（英文名称：Manx），为一种原产于英国马恩岛（马恩岛）的猫。这种猫的奇特之处在于，真正的纯种马恩岛猫
-                        </p>
-                    </div>
-                </article>
-                <article class="article">
-                    <div class="img-wrapper">
-                        <img src="http://pq55ce8xx.bkt.clouddn.com/bdb5dcc0-92f1-45a9-b015-1d0fc51f9c8b">
-                    </div>
-                    <div class="content-wrapper">
-                        <h1 class="title">马恩岛猫</h1>
-                        <p class="meta">
-                            <span class="meta-class">猫</span>
-                            <span class="meta-date">2019-5-02 14:52</span>
-                        </p>
-                        <p class="description">
-                            马恩岛猫（英文名称：Manx），为一种原产于英国马恩岛（马恩岛）的猫。这种猫的奇特之处在于，真正的纯种马恩岛猫
-                        </p>
-                    </div>
-                </article>
-                <article class="article">
-                    <div class="img-wrapper">
-                        <img src="http://pq55ce8xx.bkt.clouddn.com/bdb5dcc0-92f1-45a9-b015-1d0fc51f9c8b">
-                    </div>
-                    <div class="content-wrapper">
-                        <h1 class="title">马恩岛猫</h1>
-                        <p class="meta">
-                            <span class="meta-class">猫</span>
-                            <span class="meta-date">2019-5-02 14:52</span>
-                        </p>
-                        <p class="description">
-                            马恩岛猫（英文名称：Manx），为一种原产于英国马恩岛（马恩岛）的猫。这种猫的奇特之处在于，真正的纯种马恩岛猫
-                        </p>
-                    </div>
-                </article>
-                <article class="article">
-                    <div class="img-wrapper">
-                        <img src="http://pq55ce8xx.bkt.clouddn.com/bdb5dcc0-92f1-45a9-b015-1d0fc51f9c8b">
-                    </div>
-                    <div class="content-wrapper">
-                        <h1 class="title">马恩岛猫</h1>
-                        <p class="meta">
-                            <span class="meta-class">猫</span>
-                            <span class="meta-date">2019-5-02 14:52</span>
-                        </p>
-                        <p class="description">
-                            马恩岛猫（英文名称：Manx），为一种原产于英国马恩岛（马恩岛）的猫。这种猫的奇特之处在于，真正的纯种马恩岛猫
-                        </p>
-                    </div>
-                </article>
-                <article class="article">
-                    <div class="img-wrapper">
-                        <img src="http://pq55ce8xx.bkt.clouddn.com/bdb5dcc0-92f1-45a9-b015-1d0fc51f9c8b">
-                    </div>
-                    <div class="content-wrapper">
-                        <h1 class="title">马恩岛猫</h1>
-                        <p class="meta">
-                            <span class="meta-class">猫</span>
-                            <span class="meta-date">2019-5-02 14:52</span>
-                        </p>
-                        <p class="description">
-                            马恩岛猫（英文名称：Manx），为一种原产于英国马恩岛（马恩岛）的猫。这种猫的奇特之处在于，真正的纯种马恩岛猫
-                        </p>
-                    </div>
-                </article>
-                <article class="article">
-                    <div class="img-wrapper">
-                        <img src="http://pq55ce8xx.bkt.clouddn.com/bdb5dcc0-92f1-45a9-b015-1d0fc51f9c8b">
-                    </div>
-                    <div class="content-wrapper">
-                        <h1 class="title">马恩岛猫</h1>
-                        <p class="meta">
-                            <span class="meta-class">猫</span>
-                            <span class="meta-date">2019-5-02 14:52</span>
-                        </p>
-                        <p class="description">
-                            马恩岛猫（英文名称：Manx），为一种原产于英国马恩岛（马恩岛）的猫。这种猫的奇特之处在于，真正的纯种马恩岛猫
-                        </p>
-                    </div>
-                </article>
-                <article class="article">
-                    <div class="img-wrapper">
-                        <img src="http://pq55ce8xx.bkt.clouddn.com/bdb5dcc0-92f1-45a9-b015-1d0fc51f9c8b">
-                    </div>
-                    <div class="content-wrapper">
-                        <h1 class="title">马恩岛猫</h1>
-                        <p class="meta">
-                            <span class="meta-class">猫</span>
-                            <span class="meta-date">2019-5-02 14:52</span>
-                        </p>
-                        <p class="description">
-                            马恩岛猫（英文名称：Manx），为一种原产于英国马恩岛（马恩岛）的猫。这种猫的奇特之处在于，真正的纯种马恩岛猫
-                        </p>
+                        <p class="description">{{article.description}}</p>
                     </div>
                 </article>
             </div>
-            <div class="pagination-wrapper">
+            <div class="pagination-wrapper" v-if="content.page">
                 <el-pagination
                     background
                     layout="prev, pager, next"
-                    :total="100">
+                    :total="content.page.totalElements"
+                    :current-page="content.page.number"
+                    @current-change="pageChange">
                 </el-pagination>
             </div>
         </div>
@@ -166,15 +31,7 @@
                 下级分类
             </div>
             <div class="class-wrapper">
-                <a href="javascript:;">狗</a>
-                <a href="javascript:;">狗</a>
-                <a href="javascript:;">狗</a>
-                <a href="javascript:;">狗</a>
-                <a href="javascript:;">狗</a>
-                <a href="javascript:;">狗</a>
-                <a href="javascript:;">狗</a>
-                <a href="javascript:;">狗</a>
-                <a href="javascript:;">狗</a>
+                <a href="javascript:;" v-for="animalCategory in animalCategoryList" @click="changeAnimalCategory(animalCategory.categoryName)">{{animalCategory.categoryName}}</a>
             </div>
             <div class="recommend-title">
                 推荐阅读
@@ -221,8 +78,46 @@
 </template>
 
 <script>
+    import {mapMutations,mapGetters} from 'vuex';
+
     export default {
-        name: "ArticleList"
+        name: "ArticleList",
+        props: {
+            content: {
+                type: Object
+            }
+        },
+        methods: {
+            ...mapMutations(['initAnimalCategoryList']),
+            _initAnimalCategoryList() {
+                this.$axios.get('/petadopt/member/article/animalCategoryList').then((res) => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        this.initAnimalCategoryList(data.data);
+                    } else {
+                        this.$notify({
+                            title: '警告',
+                            message: data.message,
+                            type: 'error'
+                        });
+                    }
+                });
+            },
+            pageChange(val) {
+                this.$emit('current-change', val);
+            },
+            changeAnimalCategory(categoryName) {
+                this.$emit('changeAnimalCategory', categoryName);
+            }
+        },
+        computed: {
+            ...mapGetters({
+                animalCategoryList: 'getAnimalCategoryList'
+            })
+        },
+        created() {
+            this._initAnimalCategoryList();
+        }
     }
 </script>
 
