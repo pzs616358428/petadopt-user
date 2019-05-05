@@ -64,7 +64,6 @@
             .title
                 padding 5px 0 20px 0
                 font-size 30px
-                font-weight 100
                 color #1a1a1a
             .info-wrapper
                 height 22px
@@ -88,7 +87,6 @@
                     padding 4px 12px
                     background-color #9f9f9f
                     font-size 12px
-                    font-weight 100
                     color #fff
         .content-right
             width 302px
