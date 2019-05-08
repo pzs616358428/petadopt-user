@@ -5,7 +5,7 @@
                      text-color="#fff" active-text-color="#ffd04b" :router="defaultRouter">
                 <el-menu-item index="/">首页</el-menu-item>
                 <el-menu-item index="/adopt">领养</el-menu-item>
-                <el-menu-item index="/assist-raise">助养</el-menu-item>
+                <el-menu-item index="/assist-raise">救助</el-menu-item>
                 <el-menu-item index="/return-visit">秀宠回访</el-menu-item>
                 <el-menu-item index="/knowledge">知识</el-menu-item>
                 <el-menu-item index="/encyclopedias">百科</el-menu-item>

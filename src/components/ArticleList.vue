@@ -38,10 +38,10 @@
             </div>
             <div class="recommend-wrapper">
                 <div class="recommend">
-                    <a href="javascript:;" class="title">第六届京宠物展倒计时10天12展馆展位图</a>
+                    <a href="javascript:;" class="title">带着宠物一起来一场露营之旅吧</a>
                     <div class="content-wrapper">
                         <div class="left">
-                            <img src="http://pq55ce8xx.bkt.clouddn.com/1db686cc-4573-4f69-b700-4e24e748da10">
+                            <img src="http://img.pconline.com.cn/images/upload/upc/tx/ladyproduct/1702/28/c1/38320174_1488264438605_medium.jpg">
                         </div>
                         <div class="right">
                             由北京雄鹰国际展览有限公司主办的第六届北京国际宠物用品展览会（简称：雄鹰京宠展）即将于3月1
