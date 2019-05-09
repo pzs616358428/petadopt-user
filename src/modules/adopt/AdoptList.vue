@@ -145,7 +145,7 @@
                     width 100%
                     box-sizing border-box
                     border-bottom 1px solid #e6e6e6
-                    padding 12px
+                    padding 16px 0
                     .img-wrapper
                         width 44px
                         height 44px
