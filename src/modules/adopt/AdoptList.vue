@@ -199,7 +199,9 @@
                 </el-pagination>
             </div>
         </div>
-        <div class="content-right"></div>
+        <div class="content-right">
+            <el-button type="info">发布新帖</el-button>
+        </div>
     </div>
 </template>
 
@@ -264,6 +266,11 @@
         .content-right
             width 302px
             box-sizing border-box
+            padding 20px
             border 1px solid #e6e6e6
             background-color #fff
+            .el-button
+                display block
+                width 100%
+                border-radius 0
 </style>

@@ -10,7 +10,7 @@
                 <span class="watch-count">1444</span>
                 <img src="/static/img/ico_reply.png" class="comment-img">
                 <span class="comment-count">2344</span>
-                <span class="member-name">会飞的鱼</span>
+                <a href="javascript:;" class="member-name">会飞的鱼</a>
                 发表于
                 <span class="date">2019-05-11 14:03</span>
             </div>
