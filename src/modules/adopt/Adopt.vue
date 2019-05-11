@@ -38,6 +38,118 @@
                             <p class="date">最后发表：昨天 18:00</p>
                         </div>
                     </div>
+                    <div class="list-item">
+                        <div class="img-wrapper">
+                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
+                        </div>
+                        <div class="content-wrapper">
+                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
+                            <p class="description">北京免费领养宠物的网站</p>
+                            <div class="count-wrapper">
+                                <span>主题：5980</span>
+                                <span>帖数：10000</span>
+                            </div>
+                            <p class="date">最后发表：昨天 18:00</p>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="img-wrapper">
+                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
+                        </div>
+                        <div class="content-wrapper">
+                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
+                            <p class="description">北京免费领养宠物的网站</p>
+                            <div class="count-wrapper">
+                                <span>主题：5980</span>
+                                <span>帖数：10000</span>
+                            </div>
+                            <p class="date">最后发表：昨天 18:00</p>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="img-wrapper">
+                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
+                        </div>
+                        <div class="content-wrapper">
+                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
+                            <p class="description">北京免费领养宠物的网站</p>
+                            <div class="count-wrapper">
+                                <span>主题：5980</span>
+                                <span>帖数：10000</span>
+                            </div>
+                            <p class="date">最后发表：昨天 18:00</p>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="img-wrapper">
+                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
+                        </div>
+                        <div class="content-wrapper">
+                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
+                            <p class="description">北京免费领养宠物的网站</p>
+                            <div class="count-wrapper">
+                                <span>主题：5980</span>
+                                <span>帖数：10000</span>
+                            </div>
+                            <p class="date">最后发表：昨天 18:00</p>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="img-wrapper">
+                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
+                        </div>
+                        <div class="content-wrapper">
+                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
+                            <p class="description">北京免费领养宠物的网站</p>
+                            <div class="count-wrapper">
+                                <span>主题：5980</span>
+                                <span>帖数：10000</span>
+                            </div>
+                            <p class="date">最后发表：昨天 18:00</p>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="img-wrapper">
+                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
+                        </div>
+                        <div class="content-wrapper">
+                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
+                            <p class="description">北京免费领养宠物的网站</p>
+                            <div class="count-wrapper">
+                                <span>主题：5980</span>
+                                <span>帖数：10000</span>
+                            </div>
+                            <p class="date">最后发表：昨天 18:00</p>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="img-wrapper">
+                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
+                        </div>
+                        <div class="content-wrapper">
+                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
+                            <p class="description">北京免费领养宠物的网站</p>
+                            <div class="count-wrapper">
+                                <span>主题：5980</span>
+                                <span>帖数：10000</span>
+                            </div>
+                            <p class="date">最后发表：昨天 18:00</p>
+                        </div>
+                    </div>
+                    <div class="list-item">
+                        <div class="img-wrapper">
+                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
+                        </div>
+                        <div class="content-wrapper">
+                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
+                            <p class="description">北京免费领养宠物的网站</p>
+                            <div class="count-wrapper">
+                                <span>主题：5980</span>
+                                <span>帖数：10000</span>
+                            </div>
+                            <p class="date">最后发表：昨天 18:00</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

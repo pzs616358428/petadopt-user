@@ -6,6 +6,7 @@ Vue.use(Router);
 import Home from '../modules/home/Home';
 import Adopt from '../modules/adopt/Adopt';
 import AdoptList from '../modules/adopt/AdoptList';
+import AdoptDetail from '../modules/adopt/AdoptDetail';
 import AssistRaise from '../modules/assistraise/AssistRaise';
 import ReturnVisit from '../modules/returnvisit/ReturnVisit';
 import Knowledge from '../modules/knowledge/Knowledge';
@@ -45,6 +46,10 @@ export default new Router({
         {
             path: '/adopt-list',
             component: AdoptList
+        },
+        {
+            path: '/adopt-detail',
+            component: AdoptDetail
         }
     ],
     mode: 'history'

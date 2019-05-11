@@ -19,7 +19,7 @@
                         <img src="/static/img/noavatar_small.gif">
                     </div>
                     <div class="content-wrapper">
-                        <h1 class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</h1>
+                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
                         <p class="info">
                             楼主：
                             <span class="landlord">Joyce君</span>
@@ -35,7 +35,7 @@
                         <img src="/static/img/noavatar_small.gif">
                     </div>
                     <div class="content-wrapper">
-                        <h1 class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</h1>
+                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
                         <p class="info">
                             楼主：
                             <span class="landlord">Joyce君</span>
@@ -51,7 +51,7 @@
                         <img src="/static/img/noavatar_small.gif">
                     </div>
                     <div class="content-wrapper">
-                        <h1 class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</h1>
+                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
                         <p class="info">
                             楼主：
                             <span class="landlord">Joyce君</span>
@@ -67,7 +67,7 @@
                         <img src="/static/img/noavatar_small.gif">
                     </div>
                     <div class="content-wrapper">
-                        <h1 class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</h1>
+                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
                         <p class="info">
                             楼主：
                             <span class="landlord">Joyce君</span>
@@ -83,7 +83,103 @@
                         <img src="/static/img/noavatar_small.gif">
                     </div>
                     <div class="content-wrapper">
-                        <h1 class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</h1>
+                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
+                        <p class="info">
+                            楼主：
+                            <span class="landlord">Joyce君</span>
+                            <span class="date">2019-5-9</span>
+                            <span class="vertical-line">|</span>
+                            最后发表：
+                            <span class="last-published">阿苏 2019-5-9 13:14</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="img-wrapper">
+                        <img src="/static/img/noavatar_small.gif">
+                    </div>
+                    <div class="content-wrapper">
+                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
+                        <p class="info">
+                            楼主：
+                            <span class="landlord">Joyce君</span>
+                            <span class="date">2019-5-9</span>
+                            <span class="vertical-line">|</span>
+                            最后发表：
+                            <span class="last-published">阿苏 2019-5-9 13:14</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="img-wrapper">
+                        <img src="/static/img/noavatar_small.gif">
+                    </div>
+                    <div class="content-wrapper">
+                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
+                        <p class="info">
+                            楼主：
+                            <span class="landlord">Joyce君</span>
+                            <span class="date">2019-5-9</span>
+                            <span class="vertical-line">|</span>
+                            最后发表：
+                            <span class="last-published">阿苏 2019-5-9 13:14</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="img-wrapper">
+                        <img src="/static/img/noavatar_small.gif">
+                    </div>
+                    <div class="content-wrapper">
+                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
+                        <p class="info">
+                            楼主：
+                            <span class="landlord">Joyce君</span>
+                            <span class="date">2019-5-9</span>
+                            <span class="vertical-line">|</span>
+                            最后发表：
+                            <span class="last-published">阿苏 2019-5-9 13:14</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="img-wrapper">
+                        <img src="/static/img/noavatar_small.gif">
+                    </div>
+                    <div class="content-wrapper">
+                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
+                        <p class="info">
+                            楼主：
+                            <span class="landlord">Joyce君</span>
+                            <span class="date">2019-5-9</span>
+                            <span class="vertical-line">|</span>
+                            最后发表：
+                            <span class="last-published">阿苏 2019-5-9 13:14</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="img-wrapper">
+                        <img src="/static/img/noavatar_small.gif">
+                    </div>
+                    <div class="content-wrapper">
+                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
+                        <p class="info">
+                            楼主：
+                            <span class="landlord">Joyce君</span>
+                            <span class="date">2019-5-9</span>
+                            <span class="vertical-line">|</span>
+                            最后发表：
+                            <span class="last-published">阿苏 2019-5-9 13:14</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="img-wrapper">
+                        <img src="/static/img/noavatar_small.gif">
+                    </div>
+                    <div class="content-wrapper">
+                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
                         <p class="info">
                             楼主：
                             <span class="landlord">Joyce君</span>
