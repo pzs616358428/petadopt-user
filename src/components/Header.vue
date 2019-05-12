@@ -39,4 +39,7 @@
             margin 0 auto
             .el-menu
                 border-bottom none
+                .el-menu-item
+                    margin 0px 20px
+                    font-size 18px
 </style>

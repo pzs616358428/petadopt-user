@@ -4,16 +4,19 @@
         <keep-alive>
             <router-view></router-view>
         </keep-alive>
+        <pet-footer></pet-footer>
     </div>
 </template>
 
 <script>
     import Header from './components/Header'
+    import Footer from './components/Footer'
 
     export default {
         name: 'App',
         components: {
-            'pet-header': Header
+            'pet-header': Header,
+            'pet-footer': Footer
         }
     }
 </script>

@@ -15,12 +15,16 @@
                 <span class="date">2019-05-11 14:03</span>
             </div>
             <div class="content-wrapper">
-                <span style="font-size: 14px;color: #515151;">
+                <p style="font-size: 14px;color: #515151;">
                     奶白色，2岁，公，限天津地区，免费
                     要求以后可以看狗
                     送110X70的狗笼子和一袋狗粮（40斤）
                     留微信联系方式，我加你
-                </span>
+                </p>
+                <div>
+                    <p class="process"><img class="icon" src="../../../static/img/icon.png">领养流程</p>
+                    <img src="../../../static/img/process.jpeg">
+                </div>
             </div>
             <div class="comment">
                 <img src="/static/img/comment-tmp.png">
@@ -86,7 +90,13 @@
             .content-wrapper
                 box-sizing border-box
                 padding 30px 0
-                border-bottom 1px solid #e6e6e6
+                .process
+                    color #333
+                    font-size 16px
+                    margin 40px 0px
+                    border-top 1px solid #e6e6e6
+                    .icon
+                        margin-right 4px
             .comment
                 margin-top 30px
         .content-right
