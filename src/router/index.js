@@ -12,6 +12,8 @@ import ReturnVisit from '../modules/returnvisit/ReturnVisit';
 import Knowledge from '../modules/knowledge/Knowledge';
 import Encyclopedias from '../modules/encyclopedias/Encyclopedias';
 import Article from '../modules/article/Article';
+import UserCenter from '../modules/user/userIndex';
+import Message from '../modules/user/Information';
 
 export default new Router({
     routes: [
@@ -50,6 +52,11 @@ export default new Router({
         {
             path: '/adopt-detail',
             component: AdoptDetail
+        },
+        {
+            path:'/user-center',
+            component: UserCenter,
+
         }
     ],
     mode: 'history'

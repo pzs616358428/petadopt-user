@@ -3,7 +3,7 @@
         <div class="content-left">
             <div class="banner">
                 <div class="img-wrapper">
-                    <img src="http://www.petly.net/data/attachment/block/1e/1e16d0dcd96b9e3a6a061781c0e440b9.jpg">
+                    <img src="../../../static/img/main.png">
                 </div>
                 <div class="content-wrapper">
                     <div class="top">
@@ -153,7 +153,38 @@
                 </div>
             </div>
         </div>
-        <div class="content-right"></div>
+        <div class="content-right">
+            <div class="class-wrapper">
+                <div class="show">
+                    <a href="http://www.cpse-expo.com" target="_blank">
+                        <img src="../../../static/img/show.jpg">
+                    </a>
+                </div>
+            </div>
+            <div class="latest-title">
+                最新主题
+            </div>
+            <div class="latest-theme-wrapper">
+                <ul>
+                    <li><a href="javascript:;">（上海徐汇区）家里的母猫生了4只小猫希望</a></li>
+                    <li><a href="javascript:;">免费领养4年法斗</a></li>
+                    <li><a href="javascript:;">4个月金毛 好心人领养</a></li>
+                </ul>
+            </div>
+            <div class="latest-title">
+                领养推荐
+            </div>
+            <div class="latest-theme-wrapper">
+                <ul>
+                    <li><a href="javascript:;">浦东陆家嘴附近猫咪领养</a></li>
+                    <li><a href="javascript:;">4年雪橇犬</a></li>
+                    <li><a href="javascript:;">6个月阿拉斯加 好心人领养</a></li>
+                    <li><a href="javascript:;">上海虹桥附近猫咪领养</a></li>
+                    <li><a href="javascript:;">北京西红门附近猫咪领养</a></li>
+                    <li><a href="javascript:;">北京大兴附近猫咪领养</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -266,6 +297,42 @@
         .content-right
             width 302px
             box-sizing border-box
+            padding 0 20px
             border 1px solid #e6e6e6
-            background-color: #fff;
+            background-color #fff
+            .show
+                width 260px
+                height 180px
+                img
+                    width 100%
+                    height 100%
+            .latest-title
+                height: 50px
+                border-bottom 1px solid #e8e8e8
+                margin-bottom 15px
+                line-height 50px
+                font-size 18px
+                color #333
+            .class-wrapper
+                display flex
+                flex-wrap wrap
+                padding 10px 0
+                margin-bottom 15px
+            .latest-theme-wrapper
+                ul
+                    li
+                        height 40px
+                        line-height 40px
+                        a
+                            display inline-block
+                            overflow hidden
+                            width 260px
+                            height 40px
+                            line-height 40px
+                            font-size 13px
+                            color #333333
+                            white-space nowrap
+                            text-overflow ellipsis
+                        a:hover
+                            text-decoration underline
 </style>

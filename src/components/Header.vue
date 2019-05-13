@@ -10,6 +10,18 @@
                 <el-menu-item index="/knowledge">知识</el-menu-item>
                 <el-menu-item index="/encyclopedias">百科</el-menu-item>
             </el-menu>
+            <el-dropdown :hide-on-click="false">
+                <router-link to="/user-center" tag="span" class="el-dropdown-link">个人中心<i class="el-icon-arrow-down el-icon--right"></i></router-link>
+                <el-dropdown-menu slot="dropdown">
+                  <!--<el-dropdown-item>]我的信息</el-dropdown-item>
+                    <el-dropdown-item>修改密码</el-dropdown-item>
+                    <el-dropdown-item>我的发布</el-dropdown-item>
+                    <el-dropdown-item>我的消息</el-dropdown-item>-->
+                  <el-dropdown-item><span>基本资料</span></el-dropdown-item>
+                  <el-dropdown-item><span>退出系统</span></el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+
         </div>
     </header>
 </template>
@@ -30,7 +42,7 @@
     }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
     header
         width 100%
         background-color #545c64
@@ -42,4 +54,11 @@
                 .el-menu-item
                     margin 0px 20px
                     font-size 18px
+            .el-dropdown
+                position absolute
+                color #fff
+                right 150px
+                top 22px
+                &:hover
+                    cursor pointer
 </style>
