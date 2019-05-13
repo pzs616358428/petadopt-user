@@ -13,16 +13,16 @@
                 <a href="javascript:;" class="member-name">会飞的鱼</a>
                 发表于
                 <span class="date">2019-05-11 14:03</span>
+                <el-button type="warning" plain>申请领养</el-button>
             </div>
             <div class="content-wrapper">
                 <p style="font-size: 14px;color: #515151;">
                     奶白色，2岁，公，限天津地区，免费
-                    要求以后可以看狗
-                    送110X70的狗笼子和一袋狗粮（40斤）
-                    留微信联系方式，我加你
+                    要求以后可以看狗。送110X70的狗笼子和一袋狗粮（40斤），有需要的申请领养，
+                    有问题可在留言区与我沟通
                 </p>
                 <div>
-                    <p class="process"><img class="icon" src="../../../static/img/icon.png">领养流程</p>
+                    <p class="process">领养流程</p>
                     <img src="../../../static/img/process.jpeg">
                 </div>
             </div>
@@ -36,7 +36,12 @@
 
 <script>
     export default {
-        name: "AdoptDetail"
+        name: "AdoptDetail",
+        data() {
+            return {
+                textarea: ''
+            }
+        }
     }
 </script>
 
@@ -87,13 +92,25 @@
                     color #555
                 .date
                     margin-left 5px
+                .el-button--warning
+                    position relative
+                    left 200px
+                    color #795548de
+                    background #9e9e9e21
+                    border-color #9e9e9e40
+                    &:hover
+                        background-color #d2d2d2
             .content-wrapper
                 box-sizing border-box
                 padding 30px 0
                 .process
+                    font-size: 16px
+                    line-height: 1.5em
+                    padding-left: 30px
+                    font-weight normal
                     color #333
-                    font-size 16px
                     margin 40px 0px
+                    background url("../../../static/img/icon.png") no-repeat left center
                     border-top 1px solid #e6e6e6
                     .icon
                         margin-right 4px
