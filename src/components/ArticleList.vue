@@ -158,7 +158,7 @@
                             font-size 18px
                             color #444444
                         .meta
-                            margin-bottom 10px
+                            margin 10px 0
                             line-height 26px
                             font-size 0
                             color #afafaf
