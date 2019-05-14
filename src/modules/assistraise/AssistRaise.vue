@@ -9,9 +9,9 @@
                             <img src="http://pq55ce8xx.bkt.clouddn.com/951f0cfe-0575-4d50-a2aa-ff6a09909e82">
                         </div>
                         <div class="info-wrapper">
-                            <a class="title">英国短毛猫</a>
+                            <router-link to="/assist-detail" class="title">一只可爱的英短需要帮助</router-link>
                             <p class="publisher">发布人：管理员</p>
-                            <p class="description">在天津市北辰区翠溪园东门捡到一窝兔子，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
+                            <p class="description">在天津市北辰区翠溪园东门捡到一窝蓝猫，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
                         </div>
                     </div>
                     <div class="list-item">
@@ -19,9 +19,9 @@
                             <img src="http://pq55ce8xx.bkt.clouddn.com/951f0cfe-0575-4d50-a2aa-ff6a09909e82">
                         </div>
                         <div class="info-wrapper">
-                            <a class="title">英国短毛猫</a>
+                            <router-link to="/assist-detail" class="title">一只可爱的英短需要帮助</router-link>
                             <p class="publisher">发布人：管理员</p>
-                            <p class="description">在天津市北辰区翠溪园东门捡到一窝兔子，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
+                            <p class="description">在天津市北辰区翠溪园东门捡到一窝蓝猫，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
                         </div>
                     </div>
                     <div class="list-item">
@@ -29,9 +29,9 @@
                             <img src="http://pq55ce8xx.bkt.clouddn.com/951f0cfe-0575-4d50-a2aa-ff6a09909e82">
                         </div>
                         <div class="info-wrapper">
-                            <a class="title">英国短毛猫</a>
+                            <router-link to="/assist-detail" class="title">一只可爱的英短需要帮助</router-link>
                             <p class="publisher">发布人：管理员</p>
-                            <p class="description">在天津市北辰区翠溪园东门捡到一窝兔子，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
+                            <p class="description">在天津市北辰区翠溪园东门捡到一窝蓝猫，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
                         </div>
                     </div>
                     <div class="list-item">
@@ -39,9 +39,9 @@
                             <img src="http://pq55ce8xx.bkt.clouddn.com/951f0cfe-0575-4d50-a2aa-ff6a09909e82">
                         </div>
                         <div class="info-wrapper">
-                            <a class="title">英国短毛猫</a>
+                            <router-link to="/assist-detail" class="title">一只可爱的英短需要帮助</router-link>
                             <p class="publisher">发布人：管理员</p>
-                            <p class="description">在天津市北辰区翠溪园东门捡到一窝兔子，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
+                            <p class="description">在天津市北辰区翠溪园东门捡到一窝蓝猫，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
                         </div>
                     </div>
                     <div class="list-item">
@@ -49,9 +49,9 @@
                             <img src="http://pq55ce8xx.bkt.clouddn.com/951f0cfe-0575-4d50-a2aa-ff6a09909e82">
                         </div>
                         <div class="info-wrapper">
-                            <a class="title">英国短毛猫</a>
+                            <router-link to="/assist-detail" class="title">一只可爱的英短需要帮助</router-link>
                             <p class="publisher">发布人：管理员</p>
-                            <p class="description">在天津市北辰区翠溪园东门捡到一窝兔子，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
+                            <p class="description">在天津市北辰区翠溪园东门捡到一窝蓝猫，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
                         </div>
                     </div>
                     <div class="list-item">
@@ -59,9 +59,9 @@
                             <img src="http://pq55ce8xx.bkt.clouddn.com/951f0cfe-0575-4d50-a2aa-ff6a09909e82">
                         </div>
                         <div class="info-wrapper">
-                            <a class="title">英国短毛猫</a>
+                            <router-link to="/assist-detail" class="title">一只可爱的英短需要帮助</router-link>
                             <p class="publisher">发布人：管理员</p>
-                            <p class="description">在天津市北辰区翠溪园东门捡到一窝兔子，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
+                            <p class="description">在天津市北辰区翠溪园东门捡到一窝蓝猫，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
                         </div>
                     </div>
                     <div class="list-item">
@@ -69,9 +69,9 @@
                             <img src="http://pq55ce8xx.bkt.clouddn.com/951f0cfe-0575-4d50-a2aa-ff6a09909e82">
                         </div>
                         <div class="info-wrapper">
-                            <a class="title">英国短毛猫</a>
+                            <router-link to="/assist-detail" class="title">一只可爱的英短需要帮助</router-link>
                             <p class="publisher">发布人：管理员</p>
-                            <p class="description">在天津市北辰区翠溪园东门捡到一窝兔子，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
+                            <p class="description">在天津市北辰区翠溪园东门捡到一窝蓝猫，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
                         </div>
                     </div>
                     <div class="list-item">
@@ -79,9 +79,9 @@
                             <img src="http://pq55ce8xx.bkt.clouddn.com/951f0cfe-0575-4d50-a2aa-ff6a09909e82">
                         </div>
                         <div class="info-wrapper">
-                            <a class="title">英国短毛猫</a>
+                            <router-link to="/assist-detail" class="title">一只可爱的英短需要帮助</router-link>
                             <p class="publisher">发布人：管理员</p>
-                            <p class="description">在天津市北辰区翠溪园东门捡到一窝兔子，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
+                            <p class="description">在天津市北辰区翠溪园东门捡到一窝蓝猫，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
                         </div>
                     </div>
                 </div>
