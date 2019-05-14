@@ -23,7 +23,7 @@
                     <el-tab-pane label="个人信息"><information></information></el-tab-pane>
                     <el-tab-pane label="修改密码"><user-password></user-password></el-tab-pane>
                     <el-tab-pane label="我的发布"><publication></publication></el-tab-pane>
-                    <el-tab-pane label="我的消息">我的消息</el-tab-pane>
+                    <el-tab-pane label="我的消息"><message></message></el-tab-pane>
                 </el-tabs>
             </div>
         </div>
@@ -51,9 +51,11 @@
         display flex
         justify-content space-between
         width 1140px
+        min-height 650px
         margin 30px auto
         .content-left
             width 285px
+            height 456px
             margin-right 15px
             border 1px solid #dcdfe6
             background-color #fff
@@ -94,6 +96,6 @@
             background-color #fff
             box-shadow 0 2px 4px 0 rgba(0,0,0,.12)
             .right-wrapper
-                padding 30px 10px 10px 30px
+                padding 50px 30px 30px 30px
                 
 </style>

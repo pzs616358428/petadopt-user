@@ -39,22 +39,22 @@
                 clearable>
             </el-input>
         </div>
-      <el-button style="margin-left: 380px;" size="small" type="primary">保存</el-button>
+        <el-button style="margin-left: 380px;" size="small" type="primary">保存</el-button>
     </div>
 </template>
 
 <script>
-  export default {
-    name: "Information",
-    data(){
-      return {
-        name:"ysycathy",
-        telNum:"",
-        email:"278097089@qq.com",
-          fileList:[{url:'../../../static/img/head.png'}]
-      }
-    },
-  }
+    export default {
+        name: "Information",
+        data() {
+            return {
+                name: "ysycathy",
+                telNum: "",
+                email: "278097089@qq.com",
+                fileList: [{url: '../../../static/img/head.png'}]
+            }
+        },
+    }
 </script>
 
 <style lang="stylus">
@@ -63,7 +63,10 @@
         img
             width 100%
             height 100%
+    
     .body-item
+        display flex
+        align-items: center
         color #666
         width 780px
         overflow hidden
