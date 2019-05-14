@@ -7,6 +7,7 @@
             <div class="body-name">头像</div>
             <el-upload
                 class="upload-demo"
+                :file-list="fileList"
                 action="https://jsonplaceholder.typicode.com/posts/"
                 list-type="picture">
                 <el-button size="small" type="primary">点击上传</el-button>
@@ -49,7 +50,8 @@
       return {
         name:"ysycathy",
         telNum:"",
-        email:"278097089@qq.com"
+        email:"278097089@qq.com",
+          fileList:[{url:'../../../static/img/head.png'}]
       }
     },
   }
@@ -64,6 +66,7 @@
     .body-item
         color #666
         width 780px
+        overflow hidden
         .body-name
             float left
             padding 9px 15px
@@ -72,9 +75,13 @@
             text-align left
         .el-upload
             margin 10px 0 15px 100px
-            .el-upload__tip
-                display inline-block!important
-                margin-left 4px
+        .el-upload-list
+            float left
+            width 200px
+            margin-left 62px
+            .el-upload-list__item
+                width 80%
+                margin 0 auto
         .el-input
             width 520px
             height 38px
