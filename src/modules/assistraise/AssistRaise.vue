@@ -93,14 +93,16 @@
                 </div>
             </div>
             <div class="content-right">
+                <el-button type="info" size="mini">发布</el-button>
                 <div class="class-title">
-                    下级分类
+                    所在地区
                 </div>
                 <div class="class-wrapper">
-                    <a href="javascript:;">蛇</a>
-                    <a href="javascript:;">水族</a>
-                    <a href="javascript:;">狗科</a>
-                    <a href="javascript:;">猫科</a>
+                    <a href="javascript:;">天津</a>
+                    <a href="javascript:;">武汉</a>
+                    <a href="javascript:;">北京</a>
+                    <a href="javascript:;">厦门</a>
+                    <a href="javascript:;">深圳</a>
                 </div>
                 <div class="recommend-title">
                     推荐阅读
@@ -166,7 +168,7 @@
             font-size 26px
             color #666
         .content-wrapper
-            margin-top 20px
+            margin-top 30px
             display flex
             justify-content space-between
             width 1140px
@@ -220,6 +222,10 @@
                 padding 0 20px
                 border 1px solid #e6e6e6
                 background-color #fff
+                overflow hidden
+                .el-button
+                    float right
+                    margin-top 20px
                 .class-title
                     height 50px
                     border-bottom 1px solid #e8e8e8

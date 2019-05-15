@@ -14,6 +14,7 @@ import Encyclopedias from '../modules/encyclopedias/Encyclopedias';
 import Article from '../modules/article/Article';
 import UserCenter from '../modules/user/userIndex';
 import AssistDetail from '../modules/assistraise/AssistDetail';
+import CreateAdopt from '../modules/adopt/CreateAdppt'
 
 export default new Router({
     routes: [
@@ -52,6 +53,10 @@ export default new Router({
         {
             path: '/adopt-detail',
             component: AdoptDetail
+        },
+        {
+            path: '/createAdopt',
+            component: CreateAdopt
         },
         {
             path:'/user-center',
