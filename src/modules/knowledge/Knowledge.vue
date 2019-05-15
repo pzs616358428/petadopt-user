@@ -1,8 +1,5 @@
 <template>
     <div class="knowledge">
-        <h1 class="title">
-            知识
-        </h1>
         <div class="article-list-wrapper">
             <article-list :content="knowledgeContent" @current-change="pageChange" @changeAnimalCategory="changeAnimalCategory"></article-list>
         </div>
@@ -82,6 +79,7 @@
 <style lang="stylus" scoped>
     .knowledge
         width 100%
+        margin-top 30px
         .title
             width 1140px
             height 50px

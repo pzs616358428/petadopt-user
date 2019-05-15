@@ -1,6 +1,5 @@
 <template>
     <div class="assist-raise">
-        <h1 class="title">救助宠物</h1>
         <div class="content-wrapper">
             <div class="content-left">
                 <div class="list">
@@ -167,6 +166,7 @@
             font-size 26px
             color #666
         .content-wrapper
+            margin-top 20px
             display flex
             justify-content space-between
             width 1140px
