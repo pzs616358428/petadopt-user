@@ -13,7 +13,7 @@ import Knowledge from '../modules/knowledge/Knowledge';
 import Encyclopedias from '../modules/encyclopedias/Encyclopedias';
 import Article from '../modules/article/Article';
 import UserCenter from '../modules/user/userIndex';
-import Message from '../modules/user/Information';
+import AssistDetail from '../modules/assistraise/AssistDetail';
 
 export default new Router({
     routes: [
@@ -56,6 +56,11 @@ export default new Router({
         {
             path:'/user-center',
             component: UserCenter,
+
+        },
+        {
+            path:'/assist-detail',
+            component: AssistDetail,
 
         }
     ],

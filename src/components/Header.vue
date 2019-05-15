@@ -21,7 +21,6 @@
                   <el-dropdown-item><span>退出系统</span></el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
-
         </div>
     </header>
 </template>
@@ -47,6 +46,9 @@
         width 100%
         background-color #545c64
         .menu-wrapper
+            display flex
+            justify-content space-between
+            align-items center
             width 1140px
             margin 0 auto
             .el-menu
@@ -55,10 +57,7 @@
                     margin 0px 20px
                     font-size 18px
             .el-dropdown
-                position absolute
                 color #fff
-                right 150px
-                top 22px
                 &:hover
                     cursor pointer
 </style>

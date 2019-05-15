@@ -17,7 +17,7 @@
         margin-top 40px
         background-color #545c64
         width 100%
-        height 44px
+        height 40px
         p
             color #8F8F8F
             text-align center
