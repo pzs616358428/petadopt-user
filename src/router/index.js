@@ -15,6 +15,7 @@ import Article from '../modules/article/Article';
 import UserCenter from '../modules/user/userIndex';
 import AssistDetail from '../modules/assistraise/AssistDetail';
 import CreateAdopt from '../modules/adopt/CreateAdppt'
+import CreateAssistraise from '../modules/assistraise/CreateAssistraise'
 
 export default new Router({
     routes: [
@@ -31,6 +32,10 @@ export default new Router({
             component: AssistRaise
         },
         {
+            path: '/create-assistraise',
+            component: CreateAssistraise
+        },
+        {
             path: '/return-visit',
             component: ReturnVisit
         },
@@ -43,7 +48,7 @@ export default new Router({
             component: Encyclopedias
         },
         {
-            path: '/article/:articleId',
+            path: '/article-:articleId',
             component: Article
         },
         {
@@ -55,7 +60,7 @@ export default new Router({
             component: AdoptDetail
         },
         {
-            path: '/createAdopt',
+            path: '/create-adopt',
             component: CreateAdopt
         },
         {

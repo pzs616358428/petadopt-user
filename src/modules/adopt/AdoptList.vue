@@ -250,7 +250,7 @@
         name: "AdoptList",
         methods: {
             createAdopt(){
-                this.$router.push({path:'createAdopt'})
+                this.$router.push({path:'create-adopt'})
             }
         }
     }

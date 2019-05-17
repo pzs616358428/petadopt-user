@@ -17,35 +17,22 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="宠物性别">
-                    <el-select v-model="gender" placeholder="请选择宠物所属的性别">
-                        <el-option
-                            v-for="item in sex"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
-                        >
-                        </el-option>
-                    </el-select>
+                <el-form-item label="联系人" class="reduceWidth">
+                    <el-input v-model="form.name" placeholder="请输入联系人姓名"></el-input>
                 </el-form-item>
-                <el-form-item label="宠物年龄">
-                    <el-input v-model="form.title" placeholder="请输入宠物的年龄"></el-input>
+                <el-form-item label="联系人手机号" class="reduceWidth">
+                    <el-input v-model="form.tel" placeholder="请输入联系人手机号"></el-input>
                 </el-form-item>
-                <el-form-item label="领养要求">
-                    <el-input
-                        type="textarea"
-                        :rows="4"
-                        placeholder="请输入领养要求"
-                        v-model="form.recommend">
-                    </el-input>
+                <el-form-item label="联系人邮箱" class="reduceWidth">
+                    <el-input v-model="form.email" placeholder="请输入联系人邮箱"></el-input>
                 </el-form-item>
                 <el-form-item label="标题名称">
                     <el-input v-model="form.title" placeholder="请输入标题"></el-input>
                 </el-form-item>
-                <el-form-item label="所在地区">
-                    <el-input v-model="form.area" placeholder="请输入您所在的地区"></el-input>
+                <el-form-item label="发现地址">
+                    <el-input v-model="form.area" placeholder="请输入您发现地址"></el-input>
                 </el-form-item>
-                <el-form-item label="宠物介绍">
+                <el-form-item label="救助情况描述">
                     <el-input
                         type="textarea"
                         :rows="10"
@@ -71,44 +58,19 @@
 
 <script>
     export default {
-        name: "CreateAdopt",
+        name: "CreateAssistraise",
         data() {
             return {
                 category: "",
-                gender: "",
                 form: {
                     age: "",
                     title: "",
-                    area: "",
-                    introduce: "",
-                    recommend: ""
+                    name:"",
+                    are:"",
+                    tel:0,
+                    email:"",
+                    introduce: ""
                 },
-                options: [{
-                    value: "兔",
-                    label: "兔"
-                }, {
-                    value: "狗狗",
-                    label: "狗狗"
-                }, {
-                    value: "猫咪",
-                    label: "猫咪",
-                }, {
-                    value: "爬行",
-                    label: "爬行"
-                }, {
-                    value: "宠物鼠",
-                    label: "宠物鼠"
-                }, {
-                    value: "其他",
-                    label: "其他"
-                }],
-                sex: [{
-                    value: '女崽',
-                    label: '女崽'
-                }, {
-                    value: '男崽',
-                    label: '男崽'
-                }],
                 fileList: [{url: '../../../static/img/head.png'}]
             }
         },
@@ -165,6 +127,8 @@
                     display block
                     border-bottom 1px solid #f6f6f6
                     padding 20px 0px
+            .reduceWidth
+                width 350px
             .center-bitton
                 position relative
                 left 50%

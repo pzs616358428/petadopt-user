@@ -10,15 +10,14 @@
                 <el-menu-item index="/return-visit">秀宠回访</el-menu-item>
                 <el-menu-item index="/knowledge">知识</el-menu-item>
                 <el-menu-item index="/encyclopedias">百科</el-menu-item>
+                <el-menu-item index="/encyclopedias">百科</el-menu-item>
             </el-menu>
             <el-dropdown :hide-on-click="false">
-                <router-link to="/user-center" tag="span" class="el-dropdown-link">个人中心<i class="el-icon-arrow-down el-icon--right"></i></router-link>
+                <span class="el-dropdown-link">登录</span>
+                <span class="el-dropdown-link">注册</span>
+                <span>个人中心<i class="el-icon-arrow-down el-icon--right"></i></span>
                 <el-dropdown-menu slot="dropdown">
-                  <!--<el-dropdown-item>]我的信息</el-dropdown-item>
-                    <el-dropdown-item>修改密码</el-dropdown-item>
-                    <el-dropdown-item>我的发布</el-dropdown-item>
-                    <el-dropdown-item>我的消息</el-dropdown-item>-->
-                  <el-dropdown-item><span>基本资料</span></el-dropdown-item>
+                  <el-dropdown-item><router-link to="/user-center" tag="span">基本资料</router-link></el-dropdown-item>
                   <el-dropdown-item><span>退出系统</span></el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
@@ -67,4 +66,7 @@
                 color #fff
                 &:hover
                     cursor pointer
+                .el-dropdown-link
+                    margin 10px 15px
+                    font-size 14px
 </style>

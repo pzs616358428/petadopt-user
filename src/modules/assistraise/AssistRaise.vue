@@ -93,7 +93,7 @@
                 </div>
             </div>
             <div class="content-right">
-                <el-button type="info" size="mini">发布</el-button>
+                <el-button type="info" size="mini" @click="assistraiseForm">发布</el-button>
                 <div class="class-title">
                     所在地区
                 </div>
@@ -152,7 +152,12 @@
 
 <script>
     export default {
-        name: "AssistRaise"
+        name: "AssistRaise",
+        methods:{
+            assistraiseForm(){
+                this.$router.push({path:'create-assistraise'})
+            }
+        }
     }
 </script>
 

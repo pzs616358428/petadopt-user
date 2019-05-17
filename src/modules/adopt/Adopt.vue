@@ -213,7 +213,6 @@
         margin 30px auto
         .content-left
             width 817px
-            box-sizing border-box
             .banner
                 display flex
                 justify-content space-between
