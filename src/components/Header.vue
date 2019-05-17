@@ -160,8 +160,8 @@
                     font-size 16px
                 img
                     float left
-                    width 94px
-                    height 68px
+                    width 90px
+                    height 60px
                     border-radius 2em
             .log
                 font-size 14px

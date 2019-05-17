@@ -65,13 +65,12 @@ export default new Router({
         },
         {
             path:'/user-center',
-            component: UserCenter,
+            component: UserCenter
 
         },
         {
             path:'/assist-detail',
-            component: AssistDetail,
-
+            component: AssistDetail
         }
     ],
     mode: 'history'
