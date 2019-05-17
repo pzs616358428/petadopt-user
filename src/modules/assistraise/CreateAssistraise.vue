@@ -1,11 +1,11 @@
 <template>
     <div class="create-adopt">
         <div class="info-header">
-            <p class="title">请输入宠物的信息,您填写的信息越完整,送出率越高</p>
-            <span class="earning"> 我们提倡免费或者小偿领养送养宠物，严禁宠物买卖</span>
+            <p class="title">当您的宠物丢失需要寻找或者您的宠物健康状况出现问题需要救助，请您填写此表</p>
+            <span class="earning">请完整输入需要救助宠物的信息,您填写的信息越完整,被救助、被找到的几率越高</span>
         </div>
         <div class="info-body">
-            <el-form ref="form" :model="form" label-width="80px" label-position="left">
+            <el-form ref="form" :model="form" label-width="80px" label-position="left" :rules="rules">
                 <el-form-item label="宠物类别">
                     <el-select v-model="category" placeholder="请选择宠物所属的类别">
                         <el-option
@@ -17,27 +17,29 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="联系人" class="reduceWidth">
-                    <el-input v-model="form.name" placeholder="请输入联系人姓名"></el-input>
+                <el-form-item label="联系人" class="reduceWidth" prop="name">
+                    <el-input v-model.trim="form.name" placeholder="请输入联系人姓名"></el-input>
                 </el-form-item>
-                <el-form-item label="联系人手机号" class="reduceWidth">
-                    <el-input v-model="form.tel" placeholder="请输入联系人手机号"></el-input>
+                <el-form-item label="手机号" class="reduceWidth" prop="tel">
+                    <el-input v-model.trim="form.tel" placeholder="请输入联系人手机号"></el-input>
                 </el-form-item>
-                <el-form-item label="联系人邮箱" class="reduceWidth">
-                    <el-input v-model="form.email" placeholder="请输入联系人邮箱"></el-input>
+                <el-form-item label="邮箱" class="reduceWidth" prop="email">
+                    <el-input v-model.trim="form.email" placeholder="请输入联系人邮箱"></el-input>
                 </el-form-item>
-                <el-form-item label="标题名称">
-                    <el-input v-model="form.title" placeholder="请输入标题"></el-input>
+                <el-form-item label="标题名称" prop="title">
+                    <el-input v-model.trim="form.title" placeholder="请输入标题"></el-input>
                 </el-form-item>
-                <el-form-item label="发现地址">
-                    <el-input v-model="form.area" placeholder="请输入您发现地址"></el-input>
+                <el-form-item label="发现地址" prop="area">
+                    <el-input v-model.trim="form.area" placeholder="请输入您发现地址"></el-input>
                 </el-form-item>
-                <el-form-item label="救助情况描述">
+                <el-form-item label="救助情况" prop="description">
                     <el-input
                         type="textarea"
                         :rows="10"
-                        placeholder="请输入宠物介绍"
-                        v-model="form.introduce">
+                        placeholder="请输入宠物的救助情况"
+                        v-model.trim="form.introduce"
+                        prop="introduce"
+                    >
                     </el-input>
                 </el-form-item>
                 <el-form-item label="宠物图片">
@@ -62,16 +64,44 @@
         data() {
             return {
                 category: "",
+                options: [{
+                    value: "兔",
+                    label: "兔"
+                }, {
+                    value: "狗狗",
+                    label: "狗狗"
+                }, {
+                    value: "猫咪",
+                    label: "猫咪",
+                }, {
+                    value: "爬行",
+                    label: "爬行"
+                }, {
+                    value: "宠物鼠",
+                    label: "宠物鼠"
+                }, {
+                    value: "其他",
+                    label: "其他"
+                }],
                 form: {
                     age: "",
                     title: "",
                     name:"",
                     are:"",
-                    tel:0,
+                    tel:"",
                     email:"",
                     introduce: ""
                 },
-                fileList: [{url: '../../../static/img/head.png'}]
+                fileList: [{url: '../../../static/img/head.png'}],
+                rules:{
+                    name: [{required: true, message: '联系人不能为空', trigger: 'blur'}],
+                    tel: [{required: true, message: '手机号不能为空', trigger: 'blur'}],
+                    title: [{required: true, message: '标题名称不能为空', trigger: 'blur'}],
+                    email: [{required: true, message: '邮箱地址不能为空', trigger: 'blur'}],
+                    area: [{required: true, message: '发现地址不能为空', trigger: 'blur'}],
+                    description: [{required: true, message: '救助情况描述不能为空', trigger: 'blur'}]
+                }
+                
             }
         },
         methods: {

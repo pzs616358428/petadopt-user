@@ -13,7 +13,7 @@
                 <a href="javascript:;" class="member-name">会飞的鱼</a>
                 发表于
                 <span class="date">2019-05-11 14:03</span>
-                <el-button type="warning" plain>申请领养</el-button>
+                <el-button type="warning" plain @click="apply">申请领养</el-button>
             </div>
             <div class="content-wrapper">
                 <p style="font-size: 14px;color: #515151;">
@@ -72,6 +72,24 @@
                 </ul>
             </div>
         </div>
+        <el-dialog
+            title="填写领养申请"
+            :visible.sync="dialogVisible"
+            width="35%"
+        >
+            <el-form label-position="left" label-width="80px" :model="form">
+                <el-form-item label="申请人">
+                    <el-input v-model.trim="form.userName" placeholder="请输入您的名字" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="手机号">
+                    <el-input v-model.trim="form.tel" placeholder="请输入手机号" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="领养原因" prop="password">
+                    <el-input type="textarea" :rows="10" v-model.trim="form.reason" placeholder="请输入申请原因" clearable></el-input>
+                </el-form-item>
+                <el-button type="primary" @click="submit">立即申请</el-button>
+            </el-form>
+        </el-dialog>
     </div>
 </template>
 
@@ -80,7 +98,36 @@
         name: "AdoptDetail",
         data() {
             return {
-                textarea: ''
+                textarea: '',
+                dialogVisible:false,
+                form:{
+                    userName:"",
+                    tel:"",
+                    reason:""
+                }
+            }
+        },
+        methods:{
+            apply(){
+                this.dialogVisible = true;
+            },
+            submit(){
+                this.$confirm('请您核对信息是否填写完整，是否提交?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning',
+                    center: true
+                }).then(() => {
+                    this.$message({
+                        type: 'success',
+                        message: '提交成功!'
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消！'
+                    });
+                });
             }
         }
     }

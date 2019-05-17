@@ -2,12 +2,12 @@
     <div class="create-adopt">
         <div class="info-header">
             <p class="title">请输入宠物的信息,您填写的信息越完整,送出率越高</p>
-            <span class="earning"> 我们提倡免费或者小偿领养送养宠物，严禁宠物买卖</span>
+            <span class="earning"> 我们提倡免费偿领养送养宠物，严禁宠物买卖</span>
         </div>
         <div class="info-body">
-            <el-form ref="form" :model="form" label-width="80px" label-position="left">
+            <el-form ref="form" :model="form" label-width="80px" label-position="left" :rules="rules">
                 <el-form-item label="宠物类别">
-                    <el-select v-model="category" placeholder="请选择宠物所属的类别">
+                    <el-select v-model.trim="category" placeholder="请选择宠物所属的类别">
                         <el-option
                             v-for="item in options"
                             :key="item.value"
@@ -18,7 +18,7 @@
                     </el-select>
                 </el-form-item>
                 <el-form-item label="宠物性别">
-                    <el-select v-model="gender" placeholder="请选择宠物所属的性别">
+                    <el-select v-model.trim="gender" placeholder="请选择宠物所属的性别">
                         <el-option
                             v-for="item in sex"
                             :key="item.value"
@@ -28,10 +28,10 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="宠物年龄">
-                    <el-input v-model="form.title" placeholder="请输入宠物的年龄"></el-input>
+                <el-form-item label="宠物年龄" prop="age">
+                    <el-input v-model.trim="form.title" placeholder="请输入宠物的年龄"></el-input>
                 </el-form-item>
-                <el-form-item label="领养要求">
+                <el-form-item label="领养要求" prop="recommend">
                     <el-input
                         type="textarea"
                         :rows="4"
@@ -39,18 +39,18 @@
                         v-model="form.recommend">
                     </el-input>
                 </el-form-item>
-                <el-form-item label="标题名称">
-                    <el-input v-model="form.title" placeholder="请输入标题"></el-input>
+                <el-form-item label="标题名称" prop="title">
+                    <el-input v-model.trim="form.title" placeholder="请输入标题"></el-input>
                 </el-form-item>
-                <el-form-item label="所在地区">
-                    <el-input v-model="form.area" placeholder="请输入您所在的地区"></el-input>
+                <el-form-item label="所在地区" prop="area">
+                    <el-input v-model.trim="form.area" placeholder="请输入您所在的地区"></el-input>
                 </el-form-item>
-                <el-form-item label="宠物介绍">
+                <el-form-item label="宠物介绍" prop="introduce">
                     <el-input
                         type="textarea"
                         :rows="10"
                         placeholder="请输入宠物介绍"
-                        v-model="form.introduce">
+                        v-model.trim="form.introduce">
                     </el-input>
                 </el-form-item>
                 <el-form-item label="宠物图片">
@@ -109,7 +109,14 @@
                     value: '男崽',
                     label: '男崽'
                 }],
-                fileList: [{url: '../../../static/img/head.png'}]
+                fileList: [{url: '../../../static/img/head.png'}],
+                rules:{
+                    age: [{required: true, message: '宠物的年龄不能为空', trigger: 'blur'}],
+                    recommend: [{required: true, message: '领养要求不能为空', trigger: 'blur'}],
+                    title: [{required: true, message: '标题名称不能为空', trigger: 'blur'}],
+                    area: [{required: true, message: '所在地区不能为空', trigger: 'blur'}],
+                    introdece: [{required: true, message: '宠物介绍不能为空', trigger: 'blur'}]
+                }
             }
         },
         methods: {
