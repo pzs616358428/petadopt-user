@@ -10,7 +10,6 @@
                 <el-menu-item index="/return-visit">秀宠回访</el-menu-item>
                 <el-menu-item index="/knowledge">知识</el-menu-item>
                 <el-menu-item index="/encyclopedias">百科</el-menu-item>
-                <el-menu-item index="/encyclopedias">百科</el-menu-item>
             </el-menu>
             <el-dropdown :hide-on-click="false">
                 <span class="el-dropdown-link">登录</span>
@@ -59,8 +58,8 @@
                     font-size 16px
                 img
                     float left
-                    width 94px
-                    height 68px
+                    width 90px
+                    height 60px
                     border-radius 2em
             .el-dropdown
                 color #fff
