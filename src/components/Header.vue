@@ -3,7 +3,9 @@
         <div class="menu-wrapper">
             <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" background-color="#545c64"
                      text-color="#fff" active-text-color="#ffd04b" :router="defaultRouter">
-                <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4236003410,1743588750&fm=26&gp=0.jpg" alt="">
+                <img
+                    src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4236003410,1743588750&fm=26&gp=0.jpg"
+                    alt="">
                 <el-menu-item index="/">首页</el-menu-item>
                 <el-menu-item index="/adopt">领养</el-menu-item>
                 <el-menu-item index="/assist-raise">救助</el-menu-item>
@@ -16,8 +18,10 @@
             <el-dropdown :hide-on-click="false">
                 <span class="el-dropdown-link">个人中心<i class="el-icon-arrow-down el-icon--right"></i></span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item><router-link to="/user-center" tag="span">基本资料</router-link></el-dropdown-item>
-                  <el-dropdown-item><span>退出系统</span></el-dropdown-item>
+                    <el-dropdown-item>
+                        <router-link to="/user-center" tag="span">基本资料</router-link>
+                    </el-dropdown-item>
+                    <el-dropdown-item><span>退出系统</span></el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
         </div>
@@ -64,80 +68,90 @@
     export default {
         name: "Header",
         data() {
-            let phoneCheck = (rule, value, callback)=>{
+            let phoneCheck = (rule, value, callback) => {
                 let data = this.formReg.tel;
-                
-                if(/1([3456789])\d{9}/.test(data)){
+
+                if (/1([3456789])\d{9}/.test(data)) {
                     callback();
-                }else{
+                } else {
                     callback(new Error('手机号格式不正确'));
                 }
-            }
-            
-            let emailCheck = (rule, value, callback)=>{
+            };
+
+            let emailCheck = (rule, value, callback) => {
                 let email = this.formReg.email;
-                
-                if(/^([a-zA-Z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([a-zA-Z]{2,4})$/.test(email)){
+
+                if (/^([a-zA-Z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([a-zA-Z]{2,4})$/.test(email)) {
                     callback();
-                }else{
+                } else {
                     callback(new Error('邮箱格式不正确'));
                 }
-            }
-    
+            };
+
             let psdCheck = (rule, value, callback) => {
                 if (/^(?![0-9]+$|[a-zA-Z]+$)[0-9a-zA-Z]{6,12}$/.test(v)) {
                     callback();
                 } else {
                     callback(new Error('密码长度在6-12位，且是数字与字母的组合'))
                 }
-            }
+            };
             let confirmCheck = (rule, value, callback) => {
                 if (this.formReg.confirmPassword !== this.formReg.password) {
                     callback(new Error('两次输入的密码不一致'));
                 } else {
                     callback()
                 }
-            }
-            
-            
+            };
+
+
             return {
                 activeIndex: '/',
                 defaultRouter: true,
-                logStatus:false,
-                regStatus:false,
-                formLogin:{
-                    userName:'',
-                    password:'',
+                logStatus: false,
+                regStatus: false,
+                formLogin: {
+                    userName: '',
+                    password: ''
                 },
-                formReg:{
-                    userName:'',
-                    password:'',
-                    tel:"",
-                    email:""
+                formReg: {
+                    userName: '',
+                    password: '',
+                    tel: '',
+                    email: ''
                 },
                 rules: {
                     userName: [{required: true, message: '请输入用户名', trigger: 'blur'}],
-                    tel: [{required: true, message: '手机号不能为空', trigger: 'blur'},{validator: phoneCheck, trigger: 'blur'}],
-                    email: [{required: true, message: '邮箱地址不能为空', trigger: 'blur'},{validator: emailCheck, trigger: 'blur'}],
-                    password: [{required: true, message: '请设置密码', trigger: 'blur'},{min: 6, message: '长度在不少于6位', trigger: 'blur'},{validator: psdCheck, trigger: 'blur'}],
+                    tel: [{required: true, message: '手机号不能为空', trigger: 'blur'}, {
+                        validator: phoneCheck,
+                        trigger: 'blur'
+                    }],
+                    email: [{required: true, message: '邮箱地址不能为空', trigger: 'blur'}, {
+                        validator: emailCheck,
+                        trigger: 'blur'
+                    }],
+                    password: [{required: true, message: '请设置密码', trigger: 'blur'}, {
+                        min: 6,
+                        message: '长度在不少于6位',
+                        trigger: 'blur'
+                    }, {validator: psdCheck, trigger: 'blur'}]
                 }
-                
+
             }
         },
         created() {
             // 初始化activeIndex
             this.activeIndex = this.$route.path;
         },
-        methods:{
-            login(){
-                this.dialogVisible = true
+        methods: {
+            login() {
+                this.dialogVisible = true;
                 this.logStatus = !this.logStatus;
             },
-            userRegister(){
-                this.dialogVisible = true
+            userRegister() {
+                this.dialogVisible = true;
                 this.regStatus = !this.regStatus;
             }
-            
+
         }
     }
 </script>
@@ -170,6 +184,7 @@
                 color #fff
                 &:hover
                     cursor pointer
+
     .el-dialog
         .el-dialog__header
             background #f1f6f8
