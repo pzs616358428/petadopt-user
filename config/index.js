@@ -2,7 +2,11 @@
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
 
-const path = require('path')
+const path = require('path');
+
+// http://39.106.45.38:8888
+// http://localhost:8888
+const proxyPath = 'http://localhost:8888';
 
 module.exports = {
     dev: {
@@ -13,19 +17,23 @@ module.exports = {
         proxyTable: {
             '/petadopt/member/article/articleList': {
                 changeOrigin: true,
-                target: 'http://39.106.45.38:8888'
+                target: proxyPath
             },
             '/petadopt/member/article/animalCategoryList': {
                 changeOrigin: true,
-                target: 'http://39.106.45.38:8888'
+                target: proxyPath
             },
             '/petadopt/member/article/articleDetail': {
                 changeOrigin: true,
-                target: 'http://39.106.45.38:8888'
+                target: proxyPath
             },
             '/petadopt/member/adopt/regionList': {
                 changeOrigin: true,
-                target: 'http://localhost:8888'
+                target: proxyPath
+            },
+            '/petadopt/member/user/login': {
+                changeOrigin: true,
+                target: proxyPath
             }
         },
 

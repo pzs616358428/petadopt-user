@@ -13,9 +13,11 @@
                 <el-menu-item index="/knowledge">知识</el-menu-item>
                 <el-menu-item index="/encyclopedias">百科</el-menu-item>
             </el-menu>
-            <span class="log" @click="login">登录</span>
-            <span class="log" @click="userRegister">注册</span>
-            <el-dropdown :hide-on-click="false">
+            <div class="member-info-wrapper" v-if="!member">
+                <span class="log" @click="userLogin">登录</span>
+                <span class="log" @click="userRegister">注册</span>
+            </div>
+            <el-dropdown :hide-on-click="false" v-if="member">
                 <span class="el-dropdown-link">个人中心<i class="el-icon-arrow-down el-icon--right"></i></span>
                 <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item>
@@ -37,7 +39,7 @@
                 <el-form-item label="密码">
                     <el-input v-model.trim="formLogin.password" clearable></el-input>
                 </el-form-item>
-                <el-button type="primary">立即登录</el-button>
+                <el-button type="primary" @click="login()">立即登录</el-button>
             </el-form>
         </el-dialog>
         <el-dialog
@@ -106,6 +108,7 @@
 
             return {
                 activeIndex: '/',
+                member: null,
                 defaultRouter: true,
                 logStatus: false,
                 regStatus: false,
@@ -141,17 +144,39 @@
         created() {
             // 初始化activeIndex
             this.activeIndex = this.$route.path;
+            this._initMember();
         },
         methods: {
-            login() {
+            _initMember() {
+                // 从localStorage中获取用户数据
+                this.member = JSON.parse(localStorage.getItem("member"));
+            },
+            userLogin() {
                 this.dialogVisible = true;
                 this.logStatus = !this.logStatus;
             },
             userRegister() {
                 this.dialogVisible = true;
                 this.regStatus = !this.regStatus;
+            },
+            login() {
+                let param = new FormData();
+                param.append('memberName', this.formLogin.userName);
+                param.append('password', this.formLogin.password);
+                this.$axios.post('/petadopt/member/user/login', param).then((res) => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        // 登录成功将信息存入到localStorage中
+                        localStorage.setItem('member', JSON.stringify(data.data));
+                        // 关闭弹窗
+                        this.logStatus = false;
+                        // 刷新数据
+                        this._initMember();
+                    } else {
+                        alert(data.message);
+                    }
+                })
             }
-
         }
     }
 </script>
@@ -177,9 +202,15 @@
                     width 90px
                     height 60px
                     border-radius 2em
-            .log
-                font-size 14px
-                color #fff
+            .member-info-wrapper
+                display flex
+                justify-content space-between
+                align-items center
+                .log
+                    margin-right 20px
+                    font-size 14px
+                    color #fff
+                    cursor pointer
             .el-dropdown
                 color #fff
                 &:hover
