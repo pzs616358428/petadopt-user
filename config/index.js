@@ -22,6 +22,10 @@ module.exports = {
             '/petadopt/member/article/articleDetail': {
                 changeOrigin: true,
                 target: 'http://39.106.45.38:8888'
+            },
+            '/petadopt/member/adopt/regionList': {
+                changeOrigin: true,
+                target: 'http://localhost:8888'
             }
         },
 

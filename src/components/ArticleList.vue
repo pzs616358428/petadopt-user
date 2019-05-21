@@ -7,7 +7,7 @@
                         <img :src="article.mainImage">
                     </div>
                     <div class="content-wrapper">
-                        <router-link :to="{path: '/article-' + article.articleId}" target="_blank" class="title">{{article.title}}</router-link>
+                        <router-link :to="{path: '/article/' + article.articleId}" target="_blank" class="title">{{article.title}}</router-link>
                         <p class="meta">
                             <span class="meta-class">{{article.animalCategory.categoryName}}</span>
                             <span class="meta-date">{{article.createTime}}</span>
@@ -52,7 +52,7 @@
                     <a href="javascript:;" class="title">第六届京宠物展倒计时10天12展馆展位图</a>
                     <div class="content-wrapper">
                         <div class="left">
-                            <img src="http://pq55ce8xx.bkt.clouddn.com/1db686cc-4573-4f69-b700-4e24e748da10">
+                            <img src="http://img.pconline.com.cn/images/upload/upc/tx/ladyproduct/1702/28/c1/38320174_1488264438605_medium.jpg">
                         </div>
                         <div class="right">
                             由北京雄鹰国际展览有限公司主办的第六届北京国际宠物用品展览会（简称：雄鹰京宠展）即将于3月1

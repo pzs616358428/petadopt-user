@@ -17,51 +17,8 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="宠物性别">
-                    <el-select v-model.trim="gender" placeholder="请选择宠物所属的性别">
-                        <el-option
-                            v-for="item in sex"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
-                        >
-                        </el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="宠物年龄" prop="age">
-                    <el-input v-model.trim="form.title" placeholder="请输入宠物的年龄"></el-input>
-                </el-form-item>
-                <el-form-item label="领养要求" prop="recommend">
-                    <el-input
-                        type="textarea"
-                        :rows="4"
-                        placeholder="请输入领养要求"
-                        v-model="form.recommend">
-                    </el-input>
-                </el-form-item>
                 <el-form-item label="标题名称" prop="title">
                     <el-input v-model.trim="form.title" placeholder="请输入标题"></el-input>
-                </el-form-item>
-                <el-form-item label="所在地区" prop="area">
-                    <el-input v-model.trim="form.area" placeholder="请输入您所在的地区"></el-input>
-                </el-form-item>
-                <el-form-item label="宠物介绍" prop="introduce">
-                    <el-input
-                        type="textarea"
-                        :rows="10"
-                        placeholder="请输入宠物介绍"
-                        v-model.trim="form.introduce">
-                    </el-input>
-                </el-form-item>
-                <el-form-item label="宠物图片">
-                    <el-upload
-                        class="upload-demo"
-                        :file-list="fileList"
-                        action="https://jsonplaceholder.typicode.com/posts/"
-                        list-type="picture">
-                        <el-button size="small" type="primary">点击上传</el-button>
-                        <div class="el-upload__tip">只能上传jpg/png文件，且不超过1MB</div>
-                    </el-upload>
                 </el-form-item>
             </el-form>
             <el-button class="center-bitton" size="medium" type="primary" @click="open">提交</el-button>
@@ -75,13 +32,8 @@
         data() {
             return {
                 category: "",
-                gender: "",
                 form: {
-                    age: "",
-                    title: "",
-                    area: "",
-                    introduce: "",
-                    recommend: ""
+                    title: ""
                 },
                 options: [{
                     value: "兔",
@@ -102,20 +54,8 @@
                     value: "其他",
                     label: "其他"
                 }],
-                sex: [{
-                    value: '女崽',
-                    label: '女崽'
-                }, {
-                    value: '男崽',
-                    label: '男崽'
-                }],
-                fileList: [{url: '../../../static/img/head.png'}],
-                rules:{
-                    age: [{required: true, message: '宠物的年龄不能为空', trigger: 'blur'}],
-                    recommend: [{required: true, message: '领养要求不能为空', trigger: 'blur'}],
-                    title: [{required: true, message: '标题名称不能为空', trigger: 'blur'}],
-                    area: [{required: true, message: '所在地区不能为空', trigger: 'blur'}],
-                    introdece: [{required: true, message: '宠物介绍不能为空', trigger: 'blur'}]
+                rules: {
+                    title: [{required: true, message: '标题名称不能为空', trigger: 'blur'}]
                 }
             }
         },

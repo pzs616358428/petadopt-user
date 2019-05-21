@@ -24,130 +24,18 @@
             <div class="province">
                 <h1 class="title">宠物领养</h1>
                 <div class="province-list">
-                    <div class="list-item">
+                    <div class="list-item" v-for="region in regionList">
                         <div class="img-wrapper">
                             <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
                         </div>
                         <div class="content-wrapper">
-                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
-                            <p class="description">北京免费领养宠物的网站</p>
+                            <router-link :to="{path: '/adopt-list/' + region.regionId}" class="province-name">{{region.regionName}}</router-link>
+                            <p class="description">{{region.description}}</p>
                             <div class="count-wrapper">
-                                <span>主题：5980</span>
-                                <span>帖数：10000</span>
+                                <span>主题：{{region.themeCount}}</span>
+                                <span>帖数：{{region.postCount}}</span>
                             </div>
-                            <p class="date">最后发表：昨天 18:00</p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="img-wrapper">
-                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
-                        </div>
-                        <div class="content-wrapper">
-                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
-                            <p class="description">北京免费领养宠物的网站</p>
-                            <div class="count-wrapper">
-                                <span>主题：5980</span>
-                                <span>帖数：10000</span>
-                            </div>
-                            <p class="date">最后发表：昨天 18:00</p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="img-wrapper">
-                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
-                        </div>
-                        <div class="content-wrapper">
-                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
-                            <p class="description">北京免费领养宠物的网站</p>
-                            <div class="count-wrapper">
-                                <span>主题：5980</span>
-                                <span>帖数：10000</span>
-                            </div>
-                            <p class="date">最后发表：昨天 18:00</p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="img-wrapper">
-                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
-                        </div>
-                        <div class="content-wrapper">
-                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
-                            <p class="description">北京免费领养宠物的网站</p>
-                            <div class="count-wrapper">
-                                <span>主题：5980</span>
-                                <span>帖数：10000</span>
-                            </div>
-                            <p class="date">最后发表：昨天 18:00</p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="img-wrapper">
-                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
-                        </div>
-                        <div class="content-wrapper">
-                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
-                            <p class="description">北京免费领养宠物的网站</p>
-                            <div class="count-wrapper">
-                                <span>主题：5980</span>
-                                <span>帖数：10000</span>
-                            </div>
-                            <p class="date">最后发表：昨天 18:00</p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="img-wrapper">
-                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
-                        </div>
-                        <div class="content-wrapper">
-                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
-                            <p class="description">北京免费领养宠物的网站</p>
-                            <div class="count-wrapper">
-                                <span>主题：5980</span>
-                                <span>帖数：10000</span>
-                            </div>
-                            <p class="date">最后发表：昨天 18:00</p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="img-wrapper">
-                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
-                        </div>
-                        <div class="content-wrapper">
-                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
-                            <p class="description">北京免费领养宠物的网站</p>
-                            <div class="count-wrapper">
-                                <span>主题：5980</span>
-                                <span>帖数：10000</span>
-                            </div>
-                            <p class="date">最后发表：昨天 18:00</p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="img-wrapper">
-                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
-                        </div>
-                        <div class="content-wrapper">
-                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
-                            <p class="description">北京免费领养宠物的网站</p>
-                            <div class="count-wrapper">
-                                <span>主题：5980</span>
-                                <span>帖数：10000</span>
-                            </div>
-                            <p class="date">最后发表：昨天 18:00</p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="img-wrapper">
-                            <img src="http://www.petly.net/data/attachment/common/c8/common_2_icon.png">
-                        </div>
-                        <div class="content-wrapper">
-                            <router-link to="/adopt-list" class="province-name">北京宠物领养</router-link>
-                            <p class="description">北京免费领养宠物的网站</p>
-                            <div class="count-wrapper">
-                                <span>主题：5980</span>
-                                <span>帖数：10000</span>
-                            </div>
-                            <p class="date">最后发表：昨天 18:00</p>
+                            <p class="date">最后发表：{{region.lastTime}}</p>
                         </div>
                     </div>
                 </div>
@@ -171,7 +59,9 @@
                         <p><a href="#">4个月小白猫</a></p>
                     </div>
                     <div class="info-detail">
-                        <img src="https://pet-1254154566.cos.ap-chengdu.myqcloud.com/23a5fba5-4ce0-48bb-9305-e28e21e74a18.jpg" alt="">
+                        <img
+                            src="https://pet-1254154566.cos.ap-chengdu.myqcloud.com/23a5fba5-4ce0-48bb-9305-e28e21e74a18.jpg"
+                            alt="">
                         <p><a href="#">一岁半萨摩耶寻主</a></p>
                     </div>
                 </div>
@@ -200,7 +90,31 @@
 
 <script>
     export default {
-        name: "Adopt"
+        name: "Adopt",
+        data() {
+            return {
+                regionList: []
+            }
+        },
+        methods: {
+            _initRegionList() {
+                this.$axios.get(`/petadopt/member/adopt/regionList`).then((res) => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        this.regionList = data.data;
+                    } else {
+                        this.$notify({
+                            title: '警告',
+                            message: data.message,
+                            type: 'error'
+                        });
+                    }
+                })
+            }
+        },
+        created() {
+            this._initRegionList();
+        }
     }
 </script>
 

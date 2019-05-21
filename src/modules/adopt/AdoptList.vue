@@ -218,7 +218,9 @@
                         <p><a href="#">4个月小白猫</a></p>
                     </div>
                     <div class="info-detail">
-                        <img src="https://pet-1254154566.cos.ap-chengdu.myqcloud.com/23a5fba5-4ce0-48bb-9305-e28e21e74a18.jpg" alt="">
+                        <img
+                            src="https://pet-1254154566.cos.ap-chengdu.myqcloud.com/23a5fba5-4ce0-48bb-9305-e28e21e74a18.jpg"
+                            alt="">
                         <p><a href="#">一岁半萨摩耶寻主</a></p>
                     </div>
                 </div>
@@ -249,8 +251,8 @@
     export default {
         name: "AdoptList",
         methods: {
-            createAdopt(){
-                this.$router.push({path:'create-adopt'})
+            createAdopt() {
+                this.$router.push({path: '/create-adopt'})
             }
         }
     }

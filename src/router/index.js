@@ -48,11 +48,11 @@ export default new Router({
             component: Encyclopedias
         },
         {
-            path: '/article-:articleId',
+            path: '/article/:articleId',
             component: Article
         },
         {
-            path: '/adopt-list',
+            path: '/adopt-list/:regionId',
             component: AdoptList
         },
         {
