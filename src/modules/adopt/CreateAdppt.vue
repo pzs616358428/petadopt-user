@@ -20,6 +20,9 @@
                 <el-form-item label="标题名称" prop="title">
                     <el-input v-model.trim="form.title" placeholder="请输入标题"></el-input>
                 </el-form-item>
+                <el-form-item label="文章内容">
+                    <el-input placeholder="请输入内容"></el-input>
+                </el-form-item>
             </el-form>
             <el-button class="center-bitton" size="medium" type="primary" @click="open">提交</el-button>
         </div>

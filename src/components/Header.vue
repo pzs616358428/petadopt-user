@@ -23,7 +23,7 @@
                     <el-dropdown-item>
                         <router-link to="/user-center" tag="span">基本资料</router-link>
                     </el-dropdown-item>
-                    <el-dropdown-item><span>退出系统</span></el-dropdown-item>
+                    <el-dropdown-item><span @click="logout()">退出系统</span></el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
         </div>
@@ -37,7 +37,7 @@
                     <el-input v-model.trim="formLogin.userName" clearable></el-input>
                 </el-form-item>
                 <el-form-item label="密码">
-                    <el-input v-model.trim="formLogin.password" clearable></el-input>
+                    <el-input type="password" v-model.trim="formLogin.password" clearable></el-input>
                 </el-form-item>
                 <el-button type="primary" @click="login()">立即登录</el-button>
             </el-form>
@@ -51,16 +51,16 @@
                 <el-form-item label="用户名" prop="userName">
                     <el-input v-model.trim="formReg.userName" placeholder="请输入用户名" clearable></el-input>
                 </el-form-item>
+                <el-form-item label="密码" prop="password">
+                    <el-input type="password" v-model.trim="formReg.password" placeholder="请输入密码" clearable></el-input>
+                </el-form-item>
                 <el-form-item label="手机号" prop="tel">
                     <el-input v-model.trim="formReg.tel" placeholder="请输入手机号" clearable></el-input>
                 </el-form-item>
                 <el-form-item label="邮箱" prop="email">
                     <el-input v-model.trim="formReg.email" placeholder="请输入邮箱" clearable></el-input>
                 </el-form-item>
-                <el-form-item label="密码" prop="password">
-                    <el-input v-model.trim="formReg.password" placeholder="请输入密码" clearable></el-input>
-                </el-form-item>
-                <el-button type="primary">立即注册</el-button>
+                <el-button type="primary" @click="register();">立即注册</el-button>
             </el-form>
         </el-dialog>
     </header>
@@ -91,17 +91,10 @@
             };
 
             let psdCheck = (rule, value, callback) => {
-                if (/^(?![0-9]+$|[a-zA-Z]+$)[0-9a-zA-Z]{6,12}$/.test(v)) {
+                if (/^(?![0-9]+$|[a-zA-Z]+$)[0-9a-zA-Z]{6,12}$/.test(value)) {
                     callback();
                 } else {
-                    callback(new Error('密码长度在6-12位，且是数字与字母的组合'))
-                }
-            };
-            let confirmCheck = (rule, value, callback) => {
-                if (this.formReg.confirmPassword !== this.formReg.password) {
-                    callback(new Error('两次输入的密码不一致'));
-                } else {
-                    callback()
+                    callback(new Error('密码长度在6-12位，且是数字与字母的组合'));
                 }
             };
 
@@ -128,15 +121,15 @@
                         validator: phoneCheck,
                         trigger: 'blur'
                     }],
-                    email: [{required: true, message: '邮箱地址不能为空', trigger: 'blur'}, {
-                        validator: emailCheck,
-                        trigger: 'blur'
-                    }],
                     password: [{required: true, message: '请设置密码', trigger: 'blur'}, {
                         min: 6,
                         message: '长度在不少于6位',
                         trigger: 'blur'
-                    }, {validator: psdCheck, trigger: 'blur'}]
+                    }, {validator: psdCheck, trigger: 'blur'}],
+                    email: [{required: true, message: '邮箱地址不能为空', trigger: 'blur'}, {
+                        validator: emailCheck,
+                        trigger: 'blur'
+                    }]
                 }
 
             }
@@ -172,6 +165,26 @@
                         this.logStatus = false;
                         // 刷新数据
                         this._initMember();
+                    } else {
+                        alert(data.message);
+                    }
+                })
+            },
+            logout() {
+                localStorage.removeItem('member');
+                this._initMember();
+            },
+            register() {
+                let param = new FormData();
+                param.append('memberName', this.formReg.userName);
+                param.append('password', this.formReg.password);
+                param.append('phone', this.formReg.tel);
+                param.append('email', this.formReg.email);
+                this.$axios.post('/petadopt/member/user/register', param).then((res) => {
+                    let data = res.data;
+                    if (data.status == 0) {
+                        alert(data.message);
+                        this.regStatus = false;
                     } else {
                         alert(data.message);
                     }

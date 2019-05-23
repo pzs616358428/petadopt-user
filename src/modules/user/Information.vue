@@ -1,24 +1,24 @@
 <template>
     <div>
-        <div class="title">
+        <!--<div class="title">
             <img src="../../../static/img/message.png" alt="">
-        </div>
-        <div class="body-item">
+        </div>-->
+        <!--<div class="body-item">
             <div class="body-name">头像</div>
             <el-upload
                 class="upload-demo"
-                :file-list="fileList"
+                :file-list="updateMember.fileList"
                 action="https://jsonplaceholder.typicode.com/posts/"
                 list-type="picture">
                 <el-button size="small" type="primary">点击上传</el-button>
                 <div class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
             </el-upload>
-        </div>
+        </div>-->
         <div class="body-item">
             <div class="body-name">昵称</div>
             <el-input
                 placeholder="ysycathy"
-                v-model="name"
+                v-model="updateMember.memberInfo.nickname"
                 clearable>
             </el-input>
         </div>
@@ -26,7 +26,7 @@
             <div class="body-name">邮箱</div>
             <el-input
                 placeholder="请输入邮箱"
-                v-model="email"
+                v-model="updateMember.memberInfo.email"
                 clearable>
             </el-input>
         </div>
@@ -35,7 +35,7 @@
             <el-input
                 style="margin-left:65px"
                 placeholder="请输入手机号"
-                v-model="telNum"
+                v-model="updateMember.memberInfo.phone"
                 clearable>
             </el-input>
         </div>
@@ -46,14 +46,21 @@
 <script>
     export default {
         name: "Information",
-        data() {
-            return {
-                name: "ysycathy",
-                telNum: "",
-                email: "278097089@qq.com",
-                fileList: [{url: '../../../static/img/head.png'}]
+        props: {
+            member: {
+                type: Object
             }
         },
+        data() {
+            return {
+                updateMember: {
+
+                }
+            }
+        },
+        created() {
+            this.updateMember = this.$props.member;
+        }
     }
 </script>
 

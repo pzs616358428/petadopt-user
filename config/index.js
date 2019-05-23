@@ -34,6 +34,14 @@ module.exports = {
             '/petadopt/member/user/login': {
                 changeOrigin: true,
                 target: proxyPath
+            },
+            '/petadopt/member/user/register': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/user/getMemberInfo': {
+                changeOrigin: true,
+                target: proxyPath
             }
         },
 
