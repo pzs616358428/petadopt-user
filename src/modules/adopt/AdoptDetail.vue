@@ -1,34 +1,36 @@
 <template>
     <div class="adopt-detail">
         <div class="content-left">
-            <h1 class="title">猫 --- 想领养一只猫--北京通州</h1>
-            <div class="info-wrapper">
-                <div class="img-wrapper">
-                    <img src="/static/img/noavatar_small.gif">
+            <template v-if="adopt.adoptId">
+                <h1 class="title">{{adopt.animalCategory.categoryName}} --- {{adopt.title}} --
+                    {{adopt.region.regionName}}</h1>
+                <div class="info-wrapper">
+                    <div class="img-wrapper">
+                        <img v-if="adopt.member.memberInfo.headImage" :src="adopt.member.memberInfo.headImage">
+                        <img v-else src="/static/img/noavatar_small.gif"/>
+                    </div>
+                    <img src="/static/img/ico_see.png" class="watch-img">
+                    <span class="watch-count">{{adopt.watchCount}}</span>
+                    <img src="/static/img/ico_reply.png" class="comment-img">
+                    <span class="comment-count">{{adopt.commentCount}}</span>
+                    <a href="javascript:;" class="member-name">{{adopt.member.memberInfo.nickname}}</a>
+                    发表于
+                    <span class="date">{{adopt.createTime}}</span>
+                    <el-button type="warning" plain @click="apply">申请领养</el-button>
                 </div>
-                <img src="/static/img/ico_see.png" class="watch-img">
-                <span class="watch-count">1444</span>
-                <img src="/static/img/ico_reply.png" class="comment-img">
-                <span class="comment-count">2344</span>
-                <a href="javascript:;" class="member-name">会飞的鱼</a>
-                发表于
-                <span class="date">2019-05-11 14:03</span>
-                <el-button type="warning" plain @click="apply">申请领养</el-button>
-            </div>
-            <div class="content-wrapper">
-                <p style="font-size: 14px;color: #515151;">
-                    奶白色，2岁，公，限天津地区，免费
-                    要求以后可以看狗。送110X70的狗笼子和一袋狗粮（40斤），有需要的申请领养，
-                    有问题可在留言区与我沟通
-                </p>
-                <div>
-                    <p class="process">领养流程</p>
-                    <img src="../../../static/img/process.jpeg">
+                <div class="content-wrapper">
+                    <p style="font-size: 14px;color: #515151;">
+                        {{adopt.content}}
+                    </p>
+                    <div>
+                        <p class="process">领养流程</p>
+                        <img src="../../../static/img/process.jpeg">
+                    </div>
                 </div>
-            </div>
-            <div class="comment">
-                <img src="/static/img/comment-tmp.png">
-            </div>
+                <div class="comment">
+                    <img src="/static/img/comment-tmp.png">
+                </div>
+            </template>
         </div>
         <div class="content-right">
             <div class="class-wrapper">
@@ -48,7 +50,9 @@
                         <p><a href="#">4个月小白猫</a></p>
                     </div>
                     <div class="info-detail">
-                        <img src="https://pet-1254154566.cos.ap-chengdu.myqcloud.com/23a5fba5-4ce0-48bb-9305-e28e21e74a18.jpg" alt="">
+                        <img
+                            src="https://pet-1254154566.cos.ap-chengdu.myqcloud.com/23a5fba5-4ce0-48bb-9305-e28e21e74a18.jpg"
+                            alt="">
                         <p><a href="#">一岁半萨摩耶寻主</a></p>
                     </div>
                 </div>
@@ -85,7 +89,8 @@
                     <el-input v-model.trim="form.tel" placeholder="请输入手机号" clearable></el-input>
                 </el-form-item>
                 <el-form-item label="领养原因" prop="password">
-                    <el-input type="textarea" :rows="10" v-model.trim="form.reason" placeholder="请输入申请原因" clearable></el-input>
+                    <el-input type="textarea" :rows="10" v-model.trim="form.reason" placeholder="请输入申请原因"
+                              clearable></el-input>
                 </el-form-item>
                 <el-button type="primary" @click="submit">立即申请</el-button>
             </el-form>
@@ -99,19 +104,21 @@
         data() {
             return {
                 textarea: '',
-                dialogVisible:false,
-                form:{
-                    userName:"",
-                    tel:"",
-                    reason:""
-                }
+                dialogVisible: false,
+                form: {
+                    userName: "",
+                    tel: "",
+                    reason: ""
+                },
+                adoptId: '',
+                adopt: {}
             }
         },
-        methods:{
-            apply(){
+        methods: {
+            apply() {
                 this.dialogVisible = true;
             },
-            submit(){
+            submit() {
                 this.$confirm('请您核对信息是否填写完整，是否提交?', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
@@ -128,7 +135,22 @@
                         message: '已取消！'
                     });
                 });
+            },
+            _initAdopt() {
+                this.$axios.get(`/petadopt/member/adopt/adoptDetail?adoptId=${this.adoptId}`).then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        this.adopt = data.data;
+                    } else {
+                        alert(data.message);
+                    }
+                })
             }
+        },
+        created() {
+            // 获取地址栏领养id
+            this.adoptId = this.$route.params.adoptId;
+            this._initAdopt();
         }
     }
 </script>
@@ -183,7 +205,7 @@
                 .el-button--warning
                     position relative
                     left 200px
-                    color #795548de
+                    color #795548
                     background #9e9e9e21
                     border-color #9e9e9e40
                     &:hover

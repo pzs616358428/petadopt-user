@@ -1,12 +1,9 @@
 <template>
     <div class="adopt-list">
         <div class="content-left">
-            <el-menu default-active="1" class="el-menu-demo" mode="horizontal" text-color="#555">
-                <el-menu-item index="1">全部</el-menu-item>
-                <el-menu-item index="2">狗</el-menu-item>
-                <el-menu-item index="3">猫</el-menu-item>
-                <el-menu-item index="4">爬行</el-menu-item>
-                <el-menu-item index="5">昆虫</el-menu-item>
+            <el-menu default-active="0" class="el-menu-demo" mode="horizontal" text-color="#555" @select="animalCategoryChange">
+                <el-menu-item index="0">全部</el-menu-item>
+                <el-menu-item :index="item.animalCategoryId.toString()" v-for="item in animalCategoryList" :key="item.animalCategoryId">{{item.categoryName}}</el-menu-item>
             </el-menu>
             <div class="notice">
                 <img src="/static/img/ann_icon.gif">
@@ -14,188 +11,28 @@
                 <span>宠物领养网提示您,注意有骗子以运费为名，骗取大家钱财!</span>
             </div>
             <div class="list">
-                <div class="list-item">
+                <div class="list-item" v-for="adopt in adoptData.adoptList">
                     <div class="img-wrapper">
-                        <img src="/static/img/noavatar_small.gif">
+                        <img v-if="adopt.member.memberInfo.headImage" :src="adopt.member.memberInfo.headImage" >
+                        <img v-else src="/static/img/noavatar_small.gif"/>
                     </div>
                     <div class="content-wrapper">
-                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
+                        <router-link :to="{path: '/adopt-detail/' + adopt.adoptId}" class="title">{{adopt.title}}</router-link>
                         <p class="info">
                             楼主：
-                            <span class="landlord">Joyce君</span>
-                            <span class="date">2019-5-9</span>
-                            <span class="vertical-line">|</span>
-                            最后发表：
-                            <span class="last-published">阿苏 2019-5-9 13:14</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="img-wrapper">
-                        <img src="/static/img/noavatar_small.gif">
-                    </div>
-                    <div class="content-wrapper">
-                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
-                        <p class="info">
-                            楼主：
-                            <span class="landlord">Joyce君</span>
-                            <span class="date">2019-5-9</span>
-                            <span class="vertical-line">|</span>
-                            最后发表：
-                            <span class="last-published">阿苏 2019-5-9 13:14</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="img-wrapper">
-                        <img src="/static/img/noavatar_small.gif">
-                    </div>
-                    <div class="content-wrapper">
-                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
-                        <p class="info">
-                            楼主：
-                            <span class="landlord">Joyce君</span>
-                            <span class="date">2019-5-9</span>
-                            <span class="vertical-line">|</span>
-                            最后发表：
-                            <span class="last-published">阿苏 2019-5-9 13:14</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="img-wrapper">
-                        <img src="/static/img/noavatar_small.gif">
-                    </div>
-                    <div class="content-wrapper">
-                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
-                        <p class="info">
-                            楼主：
-                            <span class="landlord">Joyce君</span>
-                            <span class="date">2019-5-9</span>
-                            <span class="vertical-line">|</span>
-                            最后发表：
-                            <span class="last-published">阿苏 2019-5-9 13:14</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="img-wrapper">
-                        <img src="/static/img/noavatar_small.gif">
-                    </div>
-                    <div class="content-wrapper">
-                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
-                        <p class="info">
-                            楼主：
-                            <span class="landlord">Joyce君</span>
-                            <span class="date">2019-5-9</span>
-                            <span class="vertical-line">|</span>
-                            最后发表：
-                            <span class="last-published">阿苏 2019-5-9 13:14</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="img-wrapper">
-                        <img src="/static/img/noavatar_small.gif">
-                    </div>
-                    <div class="content-wrapper">
-                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
-                        <p class="info">
-                            楼主：
-                            <span class="landlord">Joyce君</span>
-                            <span class="date">2019-5-9</span>
-                            <span class="vertical-line">|</span>
-                            最后发表：
-                            <span class="last-published">阿苏 2019-5-9 13:14</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="img-wrapper">
-                        <img src="/static/img/noavatar_small.gif">
-                    </div>
-                    <div class="content-wrapper">
-                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
-                        <p class="info">
-                            楼主：
-                            <span class="landlord">Joyce君</span>
-                            <span class="date">2019-5-9</span>
-                            <span class="vertical-line">|</span>
-                            最后发表：
-                            <span class="last-published">阿苏 2019-5-9 13:14</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="img-wrapper">
-                        <img src="/static/img/noavatar_small.gif">
-                    </div>
-                    <div class="content-wrapper">
-                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
-                        <p class="info">
-                            楼主：
-                            <span class="landlord">Joyce君</span>
-                            <span class="date">2019-5-9</span>
-                            <span class="vertical-line">|</span>
-                            最后发表：
-                            <span class="last-published">阿苏 2019-5-9 13:14</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="img-wrapper">
-                        <img src="/static/img/noavatar_small.gif">
-                    </div>
-                    <div class="content-wrapper">
-                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
-                        <p class="info">
-                            楼主：
-                            <span class="landlord">Joyce君</span>
-                            <span class="date">2019-5-9</span>
-                            <span class="vertical-line">|</span>
-                            最后发表：
-                            <span class="last-published">阿苏 2019-5-9 13:14</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="img-wrapper">
-                        <img src="/static/img/noavatar_small.gif">
-                    </div>
-                    <div class="content-wrapper">
-                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
-                        <p class="info">
-                            楼主：
-                            <span class="landlord">Joyce君</span>
-                            <span class="date">2019-5-9</span>
-                            <span class="vertical-line">|</span>
-                            最后发表：
-                            <span class="last-published">阿苏 2019-5-9 13:14</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="img-wrapper">
-                        <img src="/static/img/noavatar_small.gif">
-                    </div>
-                    <div class="content-wrapper">
-                        <router-link to="/adopt-detail" class="title">举报！昌吉路的基地是骗子，大家别上当，别捐钱</router-link>
-                        <p class="info">
-                            楼主：
-                            <span class="landlord">Joyce君</span>
-                            <span class="date">2019-5-9</span>
-                            <span class="vertical-line">|</span>
-                            最后发表：
-                            <span class="last-published">阿苏 2019-5-9 13:14</span>
+                            <span class="landlord">{{adopt.member.memberInfo.nickname}}</span>
+                            <span class="date">{{adopt.createTime}}</span>
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="pagination-wrapper">
+            <div class="pagination-wrapper" v-if="adoptData.page">
                 <el-pagination
                     background
                     layout="prev, pager, next"
-                    :total="1000">
+                    :total="adoptData.page.totalElements"
+                    @current-change="pageChange"
+                >
                 </el-pagination>
             </div>
         </div>
@@ -250,10 +87,63 @@
 <script>
     export default {
         name: "AdoptList",
+        data() {
+            return {
+                regionId: '',
+                pageNum: 1,
+                adoptData: [],
+                animalCategoryList: [],
+                animalCategoryId: '0'
+            }
+        },
         methods: {
             createAdopt() {
-                this.$router.push({path: '/create-adopt'})
+                this.$router.push({path: `/create-adopt?regionId=${this.regionId}`})
+            },
+            _initAdoptData() {
+                let path = '/petadopt/member/adopt/adoptList';
+                path += '?regionId=' + this.regionId;
+                path += '&pageNum=' + this.pageNum;
+                if (this.animalCategoryId != '0') {
+                    path += '&animalCategoryId=' + this.animalCategoryId;
+                }
+                this.$axios.get(path).then(res => {
+                    let data = res.data;
+                    if (data.status == 0) {
+                        this.adoptData = data.data;
+                    } else {
+                        alert(data.message);
+                    }
+                })
+            },
+            _initAnimalCategoryList() {
+                this.$axios.get('/petadopt/member/article/animalCategoryList').then((res) => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        this.animalCategoryList = data.data;
+                    } else {
+                        this.$notify({
+                            title: '警告',
+                            message: data.message,
+                            type: 'error'
+                        });
+                    }
+                });
+            },
+            pageChange(val) {
+                this.pageNum = val;
+                this._initAdoptData();
+            },
+            animalCategoryChange(index) {
+                this.animalCategoryId = index;
+                this._initAdoptData();
             }
+        },
+        created() {
+            // 获取地区id
+            this.regionId = this.$route.params.regionId;
+            this._initAdoptData();
+            this._initAnimalCategoryList();
         }
     }
 </script>

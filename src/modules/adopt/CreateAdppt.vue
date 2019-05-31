@@ -5,23 +5,23 @@
             <span class="earning"> 我们提倡免费偿领养送养宠物，严禁宠物买卖</span>
         </div>
         <div class="info-body">
-            <el-form ref="form" :model="form" label-width="80px" label-position="left" :rules="rules">
+            <el-form ref="form" label-width="80px" label-position="left">
                 <el-form-item label="宠物类别">
                     <el-select v-model.trim="category" placeholder="请选择宠物所属的类别">
                         <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value"
+                            v-for="item in animalCategoryList"
+                            :key="item.animalCategoryId"
+                            :value="item.categoryName"
                         >
                         </el-option>
                     </el-select>
                 </el-form-item>
                 <el-form-item label="标题名称" prop="title">
-                    <el-input v-model.trim="form.title" placeholder="请输入标题"></el-input>
+                    <el-input v-model.trim="title" placeholder="请输入标题"></el-input>
                 </el-form-item>
                 <el-form-item label="文章内容">
-                    <el-input placeholder="请输入内容"></el-input>
+                    <!-- 富文本编辑器容器 -->
+                    <div id="editor"></div>
                 </el-form-item>
             </el-form>
             <el-button class="center-bitton" size="medium" type="primary" @click="open">提交</el-button>
@@ -34,32 +34,10 @@
         name: "CreateAdopt",
         data() {
             return {
-                category: "",
-                form: {
-                    title: ""
-                },
-                options: [{
-                    value: "兔",
-                    label: "兔"
-                }, {
-                    value: "狗狗",
-                    label: "狗狗"
-                }, {
-                    value: "猫咪",
-                    label: "猫咪",
-                }, {
-                    value: "爬行",
-                    label: "爬行"
-                }, {
-                    value: "宠物鼠",
-                    label: "宠物鼠"
-                }, {
-                    value: "其他",
-                    label: "其他"
-                }],
-                rules: {
-                    title: [{required: true, message: '标题名称不能为空', trigger: 'blur'}]
-                }
+                animalCategoryList: [],
+                category: '',
+                title: '',
+                editor: null
             }
         },
         methods: {
@@ -70,17 +48,38 @@
                     type: 'warning',
                     center: true
                 }).then(() => {
-                    this.$message({
+                    console.log(this.category);
+                    console.log(this.title);
+                    console.log(this.editor.getContent());
+                    /*this.$message({
                         type: 'success',
                         message: '提交成功!'
-                    });
+                    });*/
                 }).catch(() => {
                     this.$message({
                         type: 'info',
                         message: '已取消！'
                     });
                 });
+            },
+            _initEditor() {
+                UEDITOR_CONFIG.UEDITOR_HOME_URL = '../../static/ueditor/';
+                this.editor = UE.getEditor('editor');
+            },
+            _initAnimalCategoryList() {
+                this.$axios.get('/petadopt/member/article/animalCategoryList').then((res) => {
+                    let data = res.data;
+                    if (data.status == 0) {
+                        this.animalCategoryList = data.data;
+                    } else {
+                        alert(data.message);
+                    }
+                })
             }
+        },
+        mounted() {
+            this._initEditor();
+            this._initAnimalCategoryList();
         }
     }
 </script>

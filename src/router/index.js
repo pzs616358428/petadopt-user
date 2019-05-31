@@ -56,7 +56,7 @@ export default new Router({
             component: AdoptList
         },
         {
-            path: '/adopt-detail',
+            path: '/adopt-detail/:adoptId',
             component: AdoptDetail
         },
         {

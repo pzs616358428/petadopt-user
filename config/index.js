@@ -42,6 +42,18 @@ module.exports = {
             '/petadopt/member/user/getMemberInfo': {
                 changeOrigin: true,
                 target: proxyPath
+            },
+            '/petadopt/ueditor/jsp/controller': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/adopt/adoptList': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/adopt/adoptDetail': {
+                changeOrigin: true,
+                target: proxyPath
             }
         },
 
