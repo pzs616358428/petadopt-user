@@ -54,6 +54,10 @@ module.exports = {
             '/petadopt/member/adopt/adoptDetail': {
                 changeOrigin: true,
                 target: proxyPath
+            },
+            '/petadopt/member/adopt/addAdopt': {
+                changeOrigin: true,
+                target: proxyPath
             }
         },
 

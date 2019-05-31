@@ -37,6 +37,7 @@
                 animalCategoryList: [],
                 category: '',
                 title: '',
+                regionId: '',
                 editor: null
             }
         },
@@ -48,13 +49,40 @@
                     type: 'warning',
                     center: true
                 }).then(() => {
-                    console.log(this.category);
-                    console.log(this.title);
-                    console.log(this.editor.getContent());
-                    /*this.$message({
-                        type: 'success',
-                        message: '提交成功!'
-                    });*/
+                    // 将所有类别数据构建成map集合
+                    let map = new Map();
+                    for (let category of this.animalCategoryList) {
+                        map.set(category.categoryName, category.animalCategoryId);
+                    }
+
+                    let param = new FormData();
+                    param.append('animalCategoryId', map.get(this.category));
+                    param.append('regionId', this.regionId);
+                    param.append('title', this.title);
+                    param.append('content', this.editor.getContent());
+
+                    this.$axios.post('/petadopt/member/adopt/addAdopt', param).then(res => {
+                        const  data = res.data;
+                        if (data.status == 0) {
+                            this.$message({
+                                type: 'success',
+                                message: '提交成功!'
+                            });
+                            this.$router.push({path: '/adopt-list/' + this.regionId});
+                        } else if (data.status == 1) {
+                            this.$message({
+                                type: 'success',
+                                message: data.message
+                            });
+                        } else {
+                            this.$message({
+                                type: 'success',
+                                message: data.message
+                            });
+                        }
+                    })
+
+
                 }).catch(() => {
                     this.$message({
                         type: 'info',
@@ -77,9 +105,12 @@
                 })
             }
         },
+        created() {
+            this.regionId = this.$route.query.regionId;
+            this._initAnimalCategoryList();
+        },
         mounted() {
             this._initEditor();
-            this._initAnimalCategoryList();
         }
     }
 </script>

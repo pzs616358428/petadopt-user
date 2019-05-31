@@ -16,12 +16,10 @@
                     <a href="javascript:;" class="member-name">{{adopt.member.memberInfo.nickname}}</a>
                     发表于
                     <span class="date">{{adopt.createTime}}</span>
-                    <el-button type="warning" plain @click="apply">申请领养</el-button>
+                    <el-button type="warning" plain @click="apply" v-if="member.memberId != adopt.member.memberId">申请领养</el-button>
                 </div>
                 <div class="content-wrapper">
-                    <p style="font-size: 14px;color: #515151;">
-                        {{adopt.content}}
-                    </p>
+                    <p style="font-size: 14px;color: #515151; overflow: hidden;" v-html="adopt.content"></p>
                     <div>
                         <p class="process">领养流程</p>
                         <img src="../../../static/img/process.jpeg">
@@ -111,7 +109,8 @@
                     reason: ""
                 },
                 adoptId: '',
-                adopt: {}
+                adopt: {},
+                member: {}
             }
         },
         methods: {
@@ -150,6 +149,8 @@
         created() {
             // 获取地址栏领养id
             this.adoptId = this.$route.params.adoptId;
+            // 获取当前登录的用户信息
+            this.member = JSON.parse(localStorage.getItem('member'));
             this._initAdopt();
         }
     }

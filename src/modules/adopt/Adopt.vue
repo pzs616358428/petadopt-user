@@ -31,11 +31,11 @@
                         <div class="content-wrapper">
                             <router-link :to="{path: '/adopt-list/' + region.regionId}" class="province-name">{{region.regionName}}</router-link>
                             <p class="description">{{region.description}}</p>
-                            <div class="count-wrapper">
+                            <!--<div class="count-wrapper">
                                 <span>主题：{{region.themeCount}}</span>
                                 <span>帖数：{{region.postCount}}</span>
                             </div>
-                            <p class="date">最后发表：{{region.lastTime}}</p>
+                            <p class="date">最后发表：{{region.lastTime}}</p>-->
                         </div>
                     </div>
                 </div>
