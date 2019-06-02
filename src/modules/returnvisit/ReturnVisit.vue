@@ -151,6 +151,7 @@
         margin 30px auto
         display flex
         justify-content space-between
+        padding-bottom 60px
         .content-left
             display flex
             flex-direction column

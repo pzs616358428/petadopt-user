@@ -126,6 +126,7 @@
         display flex
         justify-content space-between
         width 100%
+        margin-bottom 40px
         .content-left
             width 812px
             box-sizing border-box

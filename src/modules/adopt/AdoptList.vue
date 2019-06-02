@@ -154,6 +154,7 @@
         justify-content space-between
         width 1140px
         margin 30px auto
+        padding-bottom 60px
         .content-left
             width 817px
             box-sizing border-box
