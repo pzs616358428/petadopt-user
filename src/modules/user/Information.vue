@@ -39,7 +39,7 @@
                 clearable>
             </el-input>
         </div>
-        <el-button style="margin-left: 380px;" size="small" type="primary">保存</el-button>
+        <el-button style="margin-left: 380px;" size="small" type="primary" @click="save">保存</el-button>
     </div>
 </template>
 
@@ -53,9 +53,15 @@
         },
         data() {
             return {
-                updateMember: {
-
-                }
+                updateMember: {}
+            }
+        },
+        methods: {
+            save() {
+                /*console.log(this.updateMember.memberInfo.nickname);
+                console.log(this.updateMember.memberInfo.email);
+                console.log(this.updateMember.memberInfo.phone);*/
+                this.$emit('changeInfo', this.updateMember);
             }
         },
         created() {

@@ -6,75 +6,15 @@
             <p><img src="../../../static/img/time.png" alt="">发布时间</p>
             <p><img src="../../../static/img/time.png" alt="">操作</p>
         </div>
-        <div>
+        <div v-for="adopt in adoptData.adoptList">
             <div class="publication-content">
                 <p style="width: 120px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
-                    一只可爱的狗狗
+                    {{adopt.title}}
                 </p>
-                <p>天津</p>
-                <p>2019-05-04 14:45</p>
+                <p>{{adopt.region.regionName}}</p>
+                <p>{{adopt.createTime}}</p>
                 <p>
-                    <el-button type="info" size="mini">删除</el-button>
-                </p>
-            </div>
-        </div>
-        <div>
-            <div class="publication-content">
-                <p style="width: 120px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
-                    3个月猫猫求带走
-                </p>
-                <p>天津</p>
-                <p>2019-05-03 14:20</p>
-                <p>
-                    <el-button type="info" size="mini">删除</el-button>
-                </p>
-            </div>
-        </div>
-        <div>
-            <div class="publication-content">
-                <p style="width: 120px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
-                    一只可爱的兔子
-                </p>
-                <p>天津</p>
-                <p>2019-05-02 11:00</p>
-                <p>
-                    <el-button type="info" size="mini">删除</el-button>
-                </p>
-            </div>
-        </div>
-        <div>
-            <div class="publication-content">
-                <p style="width: 120px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
-                    泰迪求带走
-                </p>
-                <p>天津</p>
-                <p>2019-05-01 22:07</p>
-                <p>
-                    <el-button type="info" size="mini">删除</el-button>
-                </p>
-            </div>
-        </div>
-        <div>
-            <div class="publication-content">
-                <p style="width: 120px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
-                    哈士奇求带走
-                </p>
-                <p>天津</p>
-                <p>2019-05-01 21:03</p>
-                <p>
-                    <el-button type="info" size="mini">删除</el-button>
-                </p>
-            </div>
-        </div>
-        <div>
-            <div class="publication-content">
-                <p style="width: 120px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap">
-                    粘人猫人另寻主人
-                </p>
-                <p>天津</p>
-                <p>2019-05-01 19:03</p>
-                <p>
-                    <el-button type="info" size="mini">删除</el-button>
+                    <el-button type="info" size="mini" @click="deleteAdopt(adopt.adoptId)">删除</el-button>
                 </p>
             </div>
         </div>
@@ -82,14 +22,50 @@
             background
             layout="prev, pager, next"
             :page-size="6"
-            :total="14">
+            :total="adoptData.page.totalElements"
+            v-if="adoptData.page"
+            @current-change="pageChange"
+        >
         </el-pagination>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Publication"
+        name: "Publication",
+        data() {
+            return {
+                adoptData: {},
+                pageNum: 1
+            }
+        },
+        methods: {
+            _initAdoptData() {
+                this.$axios.get(`/petadopt/member/adopt/adoptListByMember?pageNum=${this.pageNum}`).then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        this.adoptData = data.data;
+                    }
+                })
+            },
+            pageChange(val) {
+                this.pageNum = val;
+                this._initAdoptData();
+            },
+            deleteAdopt(adoptId) {
+                this.$axios.get(`/petadopt/member/adopt/deleteAdopt?adoptId=${adoptId}`).then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        this._initAdoptData();
+                    } else {
+                        alert(data.message);
+                    }
+                })
+            }
+        },
+        created() {
+            this._initAdoptData();
+        }
     }
 </script>
 

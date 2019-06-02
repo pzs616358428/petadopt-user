@@ -13,13 +13,18 @@
 </script>
 
 <style lang="stylus" scoped>
-    .footer
-        margin-top 40px
-        background-color #545c64
+    footer
         width 100%
-        height 40px
-        p
-            color #8F8F8F
-            text-align center
-            line-height 40px
+        position fixed
+        left 0
+        bottom 0
+        .footer
+            margin-top 40px
+            background-color #545c64
+            width 100%
+            height 40px
+            p
+                color #8F8F8F
+                text-align center
+                line-height 40px
 </style>

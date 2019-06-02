@@ -15,6 +15,21 @@
         components: {
             'pet-header': Header,
             'pet-footer': Footer
+        },
+        methods: {
+            _initMember() {
+                this.$axios.get('/petadopt/member/user/getMemberInfo').then((res) => {
+                    let data = res.data;
+                    if (data.status == 0) {
+                        localStorage.setItem('member', JSON.stringify(data.data))
+                    } else {
+                        localStorage.removeItem('member');
+                    }
+                });
+            }
+        },
+        created() {
+            this._initMember();
         }
     }
 </script>

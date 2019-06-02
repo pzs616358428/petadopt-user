@@ -21,7 +21,7 @@
             <div class="right-wrapper">
                 <el-tabs type="border-card">
                     <el-tab-pane label="个人信息">
-                        <information :member="member"></information>
+                        <information :member="member" @changeInfo="changeInfo"></information>
                     </el-tab-pane>
                     <el-tab-pane label="修改密码">
                         <user-password></user-password>
@@ -70,6 +70,18 @@
                         location.reload();
                     }
                 });
+            },
+            changeInfo(updateMember) {
+                let param = new FormData();
+                param.append('nickname', updateMember.memberInfo.nickname);
+                param.append('email', updateMember.memberInfo.email);
+                param.append('phone', updateMember.memberInfo.phone);
+                this.$axios.post('/petadopt/member/user/changeInfo', param).then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        this._initMember();
+                    }
+                })
             }
         },
         created() {

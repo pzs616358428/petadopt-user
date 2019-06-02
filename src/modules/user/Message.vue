@@ -1,81 +1,76 @@
 <template>
     <ul>
-        <li class="order-item">
+        <li class="order-item" v-for="item in messages">
             <div class="item-title">
-                <p>申请编号:<span class="detail">018090</span></p>
-                <p>申请时间:<span class="detail">2019-05-01 19:03</span></p>
-                <p>申请状态:<span class="detail">申请中</span></p>
-                <p>联系电话:<span class="detail">13987712546</span></p>
+                <p>申请编号:<span class="detail">{{item.applyId}}</span></p>
+                <p>申请时间:<span class="detail">{{item.createTime}}</span></p>
+                <p>申请状态:
+                    <span class="detail" v-if="item.applyStatus == 0">申请中</span>
+                    <span class="detail" v-else-if="item.applyStatus == 1">已通过</span>
+                    <span class="detail" v-else>已拒绝</span>
+                </p>
+                <p>联系电话:<span class="detail">{{item.applyPhone}}</span></p>
             </div>
             <div class="item-main">
                 <div class="left">
                     <p class="left-item">主题帖 :
-                        <router-link to="/user-center" class="title">一只可爱的狗狗</router-link>
+                        <router-link to="/user-center" class="title">{{item.adopt.title}}</router-link>
                     </p>
-                    <p class="left-item">申请人 :<span>miytgh</span></p>
-                    <p class="left-item">申请原因 :<span>能够接受定期查看宠物近况</span></p>
+                    <p class="left-item">申请人 :<span>{{item.applyPerson}}</span></p>
+                    <p class="left-item">申请原因 :<span>{{item.applyReason}}</span></p>
                 </div>
-                <p class="right">
-                    <span class="review">通过申请</span>
-                    <span class="review">拒绝申请</span>
+                <p class="right" v-if="item.applyStatus == 0">
+                    <span class="review" @click="pass(item.applyId)">通过申请</span>
+                    <span class="review" @click="refuse(item.applyId)">拒绝申请</span>
+                </p>
+                <p class="right" v-else-if="item.applyStatus == 1">
+                    <span class="review">已通过</span>
+                </p>
+                <p class="right" v-else>
+                    <span class="review">已拒绝</span>
                 </p>
             </div>
         </li>
-        <li class="order-item">
-            <div class="item-title">
-                <p>申请编号:<span class="detail">018089</span></p>
-                <p>申请时间:<span class="detail">2019-05-01 14:00</span></p>
-                <p>申请状态:<span class="detail">申请中</span></p>
-                <p>联系电话:<span class="detail">13172029623</span></p>
-            </div>
-            <div class="item-main">
-                <div class="left">
-                    <p class="left-item">主题帖 :
-                        <router-link to="/user-center" class="title">一只可爱的狗狗</router-link>
-                    </p>
-                    <p class="left-item">申请人 :<span>nnn</span></p>
-                    <p class="left-item">申请原因 :<span>能够接受定期查看宠物近况</span></p>
-                </div>
-                <p class="right">
-                    <span class="review">通过申请</span>
-                    <span class="review">拒绝申请</span>
-                </p>
-            </div>
-        </li>
-        <li class="order-item">
-            <div class="item-title">
-                <p>申请编号:<span class="detail">018088</span></p>
-                <p>申请时间:<span class="detail">2019-05-01 11:23</span></p>
-                <p>申请状态:<span class="detail">申请中</span></p>
-                <p>联系电话:<span class="detail">13372009623</span></p>
-            </div>
-            <div class="item-main">
-                <div class="left">
-                    <p class="left-item">主题帖 :
-                        <router-link to="/user-center" class="title">一只可爱的狗狗</router-link>
-                    </p>
-                    <p class="left-item">申请人 :<span>ttt</span></p>
-                    <p class="left-item">申请原因 :<span>能够接受定期查看宠物近况</span></p>
-                </div>
-                <p class="right">
-                    <span class="review">通过申请</span>
-                    <span class="review">拒绝申请</span>
-                </p>
-            </div>
-        </li>
-        <el-pagination
-            background
-            layout="prev, pager, next"
-            :page-size="3"
-            :total="30"
-        >
-        </el-pagination>
     </ul>
 </template>
 
 <script>
     export default {
-        name: "Message"
+        name: "Message",
+        data() {
+            return {
+                messages: []
+            }
+        },
+        methods: {
+            _initMessages() {
+                this.$axios.get('/petadopt/member/adopt/applyList').then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        this.messages = data.data;
+                    }
+                })
+            },
+            pass(applyId) {
+                this.$axios.get(`/petadopt/member/adopt/changeApplyStatus?applyId=${applyId}&status=1`).then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        this._initMessages();
+                    }
+                })
+            },
+            refuse(applyId) {
+                this.$axios.get(`/petadopt/member/adopt/changeApplyStatus?applyId=${applyId}&status=2`).then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        this._initMessages();
+                    }
+                })
+            }
+        },
+        created() {
+            this._initMessages();
+        }
     }
 </script>
 

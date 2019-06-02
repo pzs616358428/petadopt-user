@@ -163,8 +163,7 @@
                         localStorage.setItem('member', JSON.stringify(data.data));
                         // 关闭弹窗
                         this.logStatus = false;
-                        // 刷新数据
-                        this._initMember();
+                        location.reload();
                     } else {
                         alert(data.message);
                     }
@@ -172,7 +171,7 @@
             },
             logout() {
                 localStorage.removeItem('member');
-                this._initMember();
+                location.reload();
             },
             register() {
                 let param = new FormData();

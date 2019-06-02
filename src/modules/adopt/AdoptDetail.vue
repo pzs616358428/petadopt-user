@@ -16,7 +16,7 @@
                     <a href="javascript:;" class="member-name">{{adopt.member.memberInfo.nickname}}</a>
                     发表于
                     <span class="date">{{adopt.createTime}}</span>
-                    <el-button type="warning" plain @click="apply" v-if="member.memberId != adopt.member.memberId">申请领养</el-button>
+                    <el-button type="warning" plain @click="apply" v-if="member && member.memberId != adopt.member.memberId">申请领养</el-button>
                 </div>
                 <div class="content-wrapper">
                     <p style="font-size: 14px;color: #515151; overflow: hidden;" v-html="adopt.content"></p>
@@ -25,8 +25,25 @@
                         <img src="../../../static/img/process.jpeg">
                     </div>
                 </div>
+                <div class="comment-wrapper">
+                    <div class="comment-item" v-for="item in commentList">
+                        <div class="head-wrapper">
+                            <img :src="item.member.memberInfo.headImage" class="head-img" v-if="item.member.memberInfo.headImage">
+                            <img src="/static/img/noavatar_small.gif" class="head-img" v-else>
+                            <span class="member-name">{{item.member.memberInfo.nickname}}</span>
+                            <span class="date">发表于 {{item.createTime}}</span>
+                        </div>
+                        <div class="content">
+                            {{item.content}}
+                        </div>
+                    </div>
+                </div>
                 <div class="comment">
-                    <img src="/static/img/comment-tmp.png">
+                    <textarea placeholder="发表评论"
+                              style="width: 100%;height: 120px;box-sizing: border-box;padding: 15px;resize: none"
+                              v-model="content"
+                    ></textarea>
+                    <el-button type="primary" style="margin-top: 10px;" @click="addComment">发表评论</el-button>
                 </div>
             </template>
         </div>
@@ -110,7 +127,9 @@
                 },
                 adoptId: '',
                 adopt: {},
-                member: {}
+                member: {},
+                content: '',
+                commentList: []
             }
         },
         methods: {
@@ -124,10 +143,28 @@
                     type: 'warning',
                     center: true
                 }).then(() => {
-                    this.$message({
-                        type: 'success',
-                        message: '提交成功!'
-                    });
+                    let param = new FormData();
+                    param.append('applyPerson', this.form.userName);
+                    param.append('applyPhone', this.form.tel);
+                    param.append('applyReason', this.form.reason);
+                    param.append('adoptId', this.adoptId);
+                    this.$axios.post('/petadopt/member/adopt/addApply', param).then(res => {
+                        const data = res.data;
+                        if (data.status == 0) {
+                            this.$message({
+                                type: 'success',
+                                message: '提交成功!'
+                            });
+                            this.dialogVisible = false;
+                        } else {
+                            this.$message({
+                                type: 'info',
+                                message: data.message
+                            });
+                        }
+                    })
+
+
                 }).catch(() => {
                     this.$message({
                         type: 'info',
@@ -144,6 +181,28 @@
                         alert(data.message);
                     }
                 })
+            },
+            addComment() {
+                const param = new FormData();
+                param.append('adoptId', this.adoptId);
+                param.append('content', this.content);
+                this.$axios.post('/petadopt/member/adopt/addComment', param).then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        this.content = '';
+                        this._initCommentList();
+                    } else {
+                        alert(data.message);
+                    }
+                })
+            },
+            _initCommentList() {
+                this.$axios.get(`/petadopt/member/adopt/commentList?adoptId=${this.adoptId}`).then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        this.commentList = data.data;
+                    }
+                })
             }
         },
         created() {
@@ -152,6 +211,7 @@
             // 获取当前登录的用户信息
             this.member = JSON.parse(localStorage.getItem('member'));
             this._initAdopt();
+            this._initCommentList();
         }
     }
 </script>
@@ -174,6 +234,7 @@
             .info-wrapper
                 display flex
                 align-items center
+                position relative
                 margin-top 10px
                 font-size 14px
                 color #999
@@ -204,8 +265,8 @@
                 .date
                     margin-left 5px
                 .el-button--warning
-                    position relative
-                    left 200px
+                    position absolute
+                    right 15px
                     color #795548
                     background #9e9e9e21
                     border-color #9e9e9e40
@@ -225,6 +286,35 @@
                     border-top 1px solid #e6e6e6
                     .icon
                         margin-right 4px
+            .comment-wrapper
+                width 100%
+                border-top 1px solid #e8e8e8
+                padding-top 15px
+                .comment-item
+                    width 100%
+                    border-bottom 1px solid #e8e8e8
+                    margin-bottom 15px
+                    .head-wrapper
+                        display flex
+                        align-items center
+                        width 100%
+                        .head-img
+                            width 44px
+                            height 44px
+                            border-radius 50%
+                        .member-name
+                            font-size 14px
+                            font-weight bold
+                            color #555
+                            margin 0 10px
+                        .date
+                            font-size 14px
+                            color #999
+                    .content
+                        box-sizing border-box
+                        padding 15px 0
+                        font-size 14px
+                        color #515151
             .comment
                 margin-top 30px
         .content-right

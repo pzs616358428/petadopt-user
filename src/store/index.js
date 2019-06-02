@@ -7,6 +7,7 @@ const store = new Store({
     state: {
         encyclopediasContent: {},
         knowledgeContent: {},
+        assistContent: {},
         animalCategoryList: []
     },
     mutations: {
@@ -15,6 +16,9 @@ const store = new Store({
         },
         updateKnowledgeContent(state, content) {
             state.knowledgeContent = content;
+        },
+        updateAssistContent(state, content) {
+            state.assistContent = content;
         },
         initAnimalCategoryList(state, list) {
             state.animalCategoryList = list;
@@ -26,6 +30,9 @@ const store = new Store({
         },
         getKnowledgeContent(state) {
             return state.knowledgeContent;
+        },
+        getAssistContent(state) {
+            return state.assistContent;
         },
         getAnimalCategoryList(state) {
             return state.animalCategoryList;

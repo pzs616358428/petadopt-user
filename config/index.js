@@ -58,6 +58,34 @@ module.exports = {
             '/petadopt/member/adopt/addAdopt': {
                 changeOrigin: true,
                 target: proxyPath
+            },
+            '/petadopt/member/adopt/deleteAdopt': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/adopt/addApply': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/adopt/applyList': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/adopt/changeApplyStatus': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/user/changeInfo': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/adopt/addComment': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/adopt/commentList': {
+                changeOrigin: true,
+                target: proxyPath
             }
         },
 
