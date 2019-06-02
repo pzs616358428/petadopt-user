@@ -17,54 +17,21 @@
                     </el-carousel-item>
                 </el-carousel>
                 <div class="tips">
-                    <h4><span class="yel">最新</span><span class="gra">领养</span></h4>
-                    <div class="tips-count">共计<strong style="color:#ffd04b;">0</strong>篇 <em></em> </div>
-                </div>
-                <div class="list">
-                    <div class="list-item">
-                        <div class="img-wrapper">
-                            <img src="http://pq55ce8xx.bkt.clouddn.com/951f0cfe-0575-4d50-a2aa-ff6a09909e82">
-                        </div>
-                        <div class="info-wrapper">
-                            <router-link to="/adopt-detail" class="title">一只可爱的英短需要帮助</router-link>
-                            <p class="publisher">发布人：管理员</p>
-                            <p class="description">在天津市北辰区翠溪园东门捡到一窝蓝猫，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="img-wrapper">
-                            <img src="http://pq55ce8xx.bkt.clouddn.com/951f0cfe-0575-4d50-a2aa-ff6a09909e82">
-                        </div>
-                        <div class="info-wrapper">
-                            <router-link to="/adopt-detail" class="title">一只可爱的英短需要帮助</router-link>
-                            <p class="publisher">发布人：管理员</p>
-                            <p class="description">在天津市北辰区翠溪园东门捡到一窝蓝猫，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tips">
                     <h4><span class="yel">最新</span><span class="gra">救助</span></h4>
-                    <div class="tips-count">共计<strong style="color:#ffd04b;">0</strong>篇 <em></em> </div>
+                    <div class="tips-count" v-if="assistAdvert.length >= 4">共计<strong style="color:#ffd04b;">4</strong>篇
+                        <em></em></div>
+                    <div class="tips-count" v-else>共计<strong style="color:#ffd04b;">{{assistAdvert.length}}</strong>篇
+                        <em></em></div>
                 </div>
                 <div class="list">
-                    <div class="list-item">
+                    <div class="list-item" v-for="item in assistAdvert">
                         <div class="img-wrapper">
-                            <img src="http://pq55ce8xx.bkt.clouddn.com/951f0cfe-0575-4d50-a2aa-ff6a09909e82">
+                            <img :src="item.mainImage">
                         </div>
                         <div class="info-wrapper">
-                            <router-link to="/assist-detail" class="title">一只可爱的英短需要帮助</router-link>
-                            <p class="publisher">发布人：管理员</p>
-                            <p class="description">在天津市北辰区翠溪园东门捡到一窝蓝猫，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="img-wrapper">
-                            <img src="http://pq55ce8xx.bkt.clouddn.com/951f0cfe-0575-4d50-a2aa-ff6a09909e82">
-                        </div>
-                        <div class="info-wrapper">
-                            <router-link to="/assist-detail" class="title">一只可爱的英短需要帮助</router-link>
-                            <p class="publisher">发布人：管理员</p>
-                            <p class="description">在天津市北辰区翠溪园东门捡到一窝蓝猫，有3只母的，一只公的，目测出生两三天，希望有爱心人士能领养</p>
+                            <router-link :to="{path: '/article/' + item.articleId}" class="title">{{item.title}}</router-link>
+                            <p class="publisher">发布人：{{item.user.userInfo.nickname}}</p>
+                            <p class="description">{{item.description}}</p>
                         </div>
                     </div>
                 </div>
@@ -73,41 +40,41 @@
                 <div class="latest-title">
                     最新知识
                 </div>
-                <div class="latest-theme-wrapper">
+                <div class="latest-theme-wrapper" v-if="knowledgeAdvert.length">
                     <div class="img-info">
                         <div class="info-detail">
-                            <img src="http://www.petly.net/data/attachment/common/a5/common_38_icon.png" alt="">
-                            <p><a href="#">4个月小白猫饲养</a></p>
+                            <img :src="knowledgeAdvert[0].mainImage" alt="">
+                            <p><router-link :to="{path: '/article/' + knowledgeAdvert[0].articleId}" class="title">{{knowledgeAdvert[0].title}}</router-link></p>
                         </div>
                         <div class="info-detail">
-                            <img src="https://pet-1254154566.cos.ap-chengdu.myqcloud.com/23a5fba5-4ce0-48bb-9305-e28e21e74a18.jpg" alt="">
-                            <p><a href="#">萨摩耶饲养</a></p>
+                            <img :src="knowledgeAdvert[1].mainImage" alt="">
+                            <p><router-link :to="{path: '/article/' + knowledgeAdvert[1].articleId}" class="title">{{knowledgeAdvert[1].title}}</router-link></p>
                         </div>
                     </div>
                     <ul>
-                        <li><a href="javascript:;">该怎么去喂养兔子？记住这三方面就轻松解决</a></li>
-                        <li><a href="javascript:;">该怎么去喂养兔子？记住这三方面就轻松解决</a></li>
-                        <li><a href="javascript:;">该怎么去喂养兔子？记住这三方面就轻松解决</a></li>
+                        <li><router-link :to="{path: '/article/' + knowledgeAdvert[2].articleId}">{{knowledgeAdvert[2].title}}</router-link></li>
+                        <li><router-link :to="{path: '/article/' + knowledgeAdvert[3].articleId}">{{knowledgeAdvert[3].title}}</router-link></li>
+                        <li><router-link :to="{path: '/article/' + knowledgeAdvert[4].articleId}">{{knowledgeAdvert[4].title}}</router-link></li>
                     </ul>
                 </div>
                 <div class="latest-title">
                     最新百科
                 </div>
-                <div class="latest-theme-wrapper">
+                <div class="latest-theme-wrapper" v-if="encyclopediasAdvert.length">
                     <div class="img-info">
                         <div class="info-detail">
-                            <img src="http://www.petly.net/data/attachment/common/a5/common_38_icon.png" alt="">
-                            <p><a href="#">4个月小白猫饲养</a></p>
+                            <img :src="encyclopediasAdvert[0].mainImage" alt="">
+                            <p><router-link :to="{path: '/article/' + encyclopediasAdvert[0].articleId}" class="title">{{encyclopediasAdvert[0].title}}</router-link></p>
                         </div>
                         <div class="info-detail">
-                            <img src="https://pet-1254154566.cos.ap-chengdu.myqcloud.com/23a5fba5-4ce0-48bb-9305-e28e21e74a18.jpg" alt="">
-                            <p><a href="#">萨摩耶饲养</a></p>
+                            <img :src="encyclopediasAdvert[1].mainImage" alt="">
+                            <p><router-link :to="{path: '/article/' + encyclopediasAdvert[1].articleId}" class="title">{{encyclopediasAdvert[1].title}}</router-link></p>
                         </div>
                     </div>
                     <ul>
-                        <li><a href="javascript:;">该怎么去喂养兔子？记住这三方面就轻松解决</a></li>
-                        <li><a href="javascript:;">该怎么去喂养兔子？记住这三方面就轻松解决</a></li>
-                        <li><a href="javascript:;">该怎么去喂养兔子？记住这三方面就轻松解决</a></li>
+                        <li><router-link :to="{path: '/article/' + encyclopediasAdvert[2].articleId}">{{encyclopediasAdvert[2].title}}</router-link></li>
+                        <li><router-link :to="{path: '/article/' + encyclopediasAdvert[3].articleId}">{{encyclopediasAdvert[3].title}}</router-link></li>
+                        <li><router-link :to="{path: '/article/' + encyclopediasAdvert[4].articleId}">{{encyclopediasAdvert[4].title}}</router-link></li>
                     </ul>
                 </div>
             </div>
@@ -117,7 +84,51 @@
 
 <script>
     export default {
-        name: "Home"
+        name: "Home",
+        data() {
+            return {
+                assistAdvert: [],
+                knowledgeAdvert: [],
+                encyclopediasAdvert: []
+            }
+        },
+        methods: {
+            _initAdvert() {
+                this.$axios.get('/petadopt/member/advert/assistAdvert').then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        if (data.data.length > 4) {
+                            this.assistAdvert = data.data.slice(0, 4);
+                        } else {
+                            this.assistAdvert = data.data;
+                        }
+                    }
+                });
+                this.$axios.get('/petadopt/member/advert/knowledgeAdvert').then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        if (data.data.length > 4) {
+                            this.knowledgeAdvert = data.data.slice(0, 5);
+                        } else {
+                            this.knowledgeAdvert = data.data;
+                        }
+                    }
+                });
+                this.$axios.get('/petadopt/member/advert/encyclopediasAdvert').then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        if (data.data.length > 4) {
+                            this.encyclopediasAdvert = data.data.slice(0, 5);
+                        } else {
+                            this.encyclopediasAdvert = data.data;
+                        }
+                    }
+                });
+            }
+        },
+        created() {
+            this._initAdvert();
+        }
     }
 </script>
 
@@ -233,6 +244,7 @@
                             margin-bottom 10px
                             img
                                 width 110px
+                                height 110px
                                 &:hover
                                     cursor pointer
                             a

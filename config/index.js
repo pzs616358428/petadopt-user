@@ -86,6 +86,34 @@ module.exports = {
             '/petadopt/member/adopt/commentList': {
                 changeOrigin: true,
                 target: proxyPath
+            },
+            '/petadopt/member/advert/adoptAdvert': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/advert/assistAdvert': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/advert/knowledgeAdvert': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/advert/encyclopediasAdvert': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/ueditor/jsp/upload': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/visit/addVisit': {
+                changeOrigin: true,
+                target: proxyPath
+            },
+            '/petadopt/member/visit/visitList': {
+                changeOrigin: true,
+                target: proxyPath
             }
         },
 

@@ -15,66 +15,31 @@
                 </div>
                 <div class="buttom">
                     <el-upload
-                        :on-preview="handlePictureCardPreview"
-                        action="https://jsonplaceholder.typicode.com/posts/"
+                        action="/petadopt/ueditor/jsp/upload"
                         list-type="picture-card"
+                        name="upfile"
+                        :limit="limit"
+                        :on-success="onSuccess"
                     >
                         <i class="el-icon-plus"></i>
                     </el-upload>
-                    <el-button type="primary">发表</el-button>
+                    <el-button type="primary" @click="sub">发表</el-button>
                 </div>
             </div>
             <ul class="show-comments">
-                <li>
-                    <p>hello，我介绍一下我家猫咪叫小拉婷，一岁了是一可爱的小母猫。 带着我家主子去楼下的公园去散步，我们要和春天有个约会。
-                        我把猫放在笼子里，铺上的尿垫，穿上了小衣服和带上了牵引绳，因为小拉婷不经常出门怕出去会丢了，所以带上了牵引绳不让它受到外界的惊吓变成流浪猫，所以出门必带牵引绳和背包或者运输笼。
-                        绿油油的树叶感觉到了春天的气息。</p>
-                    
+                <li v-for="item in visitList">
+                    <p>{{item.content}}</p>
+
                     <ul class="img-wrapper">
-                        <li>
-                            <img src="http://cdn.lazyer.net/show/image/0278f71c1cdc4921962dae5d2621d6ba.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="http://cdn.lazyer.net/show/image/2c08175a823744b9b82ee00fce45c434.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="http://cdn.lazyer.net/show/image/243f26146ee74d19a5559d68cb7e6d09.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="http://cdn.lazyer.net/show/image/5ea7646b1f744ff8bbd7dd99a7472424.jpg" alt="">
+                        <li v-for="img in item.images">
+                            <img width="362" height="292" :src="img">
                         </li>
                     </ul>
                     <div class="attribute">
-                        <span>威利·旺卡·野原💖</span>
-                        <span>2019-04-16</span>
-                        <span class="watch-count"><img src="../../../static/img/watch.png" alt="">159</span>
-                        <span class="watch-count"><img src="../../../static/img/comment.png" alt="">2</span>
-                    </div>
-                </li>
-                <li>
-                    <p>hello，我介绍一下我家猫咪叫小拉婷，一岁了是一可爱的小母猫。 带着我家主子去楼下的公园去散步，我们要和春天有个约会。
-                        我把猫放在笼子里，铺上的尿垫，穿上了小衣服和带上了牵引绳，因为小拉婷不经常出门怕出去会丢了，所以带上了牵引绳不让它受到外界的惊吓变成流浪猫，所以出门必带牵引绳和背包或者运输笼。
-                        绿油油的树叶感觉到了春天的气息。</p>
-        
-                    <ul class="img-wrapper">
-                        <li>
-                            <img src="http://cdn.lazyer.net/show/image/0278f71c1cdc4921962dae5d2621d6ba.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="http://cdn.lazyer.net/show/image/2c08175a823744b9b82ee00fce45c434.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="http://cdn.lazyer.net/show/image/243f26146ee74d19a5559d68cb7e6d09.jpg" alt="">
-                        </li>
-                        <li>
-                            <img src="http://cdn.lazyer.net/show/image/5ea7646b1f744ff8bbd7dd99a7472424.jpg" alt="">
-                        </li>
-                    </ul>
-                    <div class="attribute">
-                        <span>威利·旺卡·野原💖</span>
-                        <span>2019-04-16</span>
-                        <span class="watch-count"><img src="../../../static/img/watch.png" alt="">159</span>
-                        <span class="watch-count"><img src="../../../static/img/comment.png" alt="">2</span>
+                        <span>{{item.member.memberInfo.nickname}}💖</span>
+                        <span>{{item.createTime}}</span>
+                        <span class="watch-count"><img src="../../../static/img/watch.png" alt="">{{item.watchCount}}</span>
+                        <span class="watch-count"><img src="../../../static/img/comment.png" alt="">{{item.commentCount}}</span>
                     </div>
                 </li>
             </ul>
@@ -107,7 +72,9 @@
                         <p><a href="#">4个月小白猫</a></p>
                     </div>
                     <div class="info-detail">
-                        <img src="https://pet-1254154566.cos.ap-chengdu.myqcloud.com/23a5fba5-4ce0-48bb-9305-e28e21e74a18.jpg" alt="">
+                        <img
+                            src="https://pet-1254154566.cos.ap-chengdu.myqcloud.com/23a5fba5-4ce0-48bb-9305-e28e21e74a18.jpg"
+                            alt="">
                         <p><a href="#">一岁半萨摩耶寻主</a></p>
                     </div>
                 </div>
@@ -132,13 +99,48 @@
         data() {
             return {
                 textarea: "",
-                dialogVisible: true
+                dialogVisible: true,
+                images: '',
+                limit: 4,
+                visitList: []
             }
         },
         methods: {
-            handlePictureCardPreview(file) {
-                console.log(file)
+            sub() {
+                const param = new FormData();
+                param.append('content', this.textarea);
+
+                this.images = this.images.substring(0, this.images.length - 1);
+
+                param.append('images', this.images);
+
+                this.$axios.post('/petadopt/member/visit/addVisit', param).then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        location.reload();
+                    } else {
+                        alert(data.message);
+                    }
+                })
+            },
+            onSuccess(res) {
+                this.images += res + ';';
+            },
+            _initData() {
+                this.$axios.get('/petadopt/member/visit/visitList').then(res => {
+                    const data = res.data;
+                    if (data.status == 0) {
+                        this.visitList = data.data;
+                        for (let item of this.visitList) {
+                            item.images = item.images.split(';');
+                        }
+                        console.log(this.visitList);
+                    }
+                })
             }
+        },
+        created() {
+            this._initData();
         }
     }
 </script>

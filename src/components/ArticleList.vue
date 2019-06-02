@@ -41,7 +41,7 @@
                     <a href="javascript:;" class="title">带着宠物一起来一场露营之旅吧</a>
                     <div class="content-wrapper">
                         <div class="left">
-                            <img src="http://img.pconline.com.cn/images/upload/upc/tx/ladyproduct/1702/28/c1/38320174_1488264438605_medium.jpg">
+                            <img src="http://www.petly.net/data/attachment/common/a5/common_38_icon.png">
                         </div>
                         <div class="right">
                             由北京雄鹰国际展览有限公司主办的第六届北京国际宠物用品展览会（简称：雄鹰京宠展）即将于3月1
@@ -52,7 +52,7 @@
                     <a href="javascript:;" class="title">第六届京宠物展倒计时10天12展馆展位图</a>
                     <div class="content-wrapper">
                         <div class="left">
-                            <img src="http://img.pconline.com.cn/images/upload/upc/tx/ladyproduct/1702/28/c1/38320174_1488264438605_medium.jpg">
+                            <img src="http://www.petly.net/data/attachment/common/a5/common_38_icon.png">
                         </div>
                         <div class="right">
                             由北京雄鹰国际展览有限公司主办的第六届北京国际宠物用品展览会（简称：雄鹰京宠展）即将于3月1
