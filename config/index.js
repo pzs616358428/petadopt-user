@@ -6,7 +6,7 @@ const path = require('path');
 
 // http://39.106.45.38:8888
 // http://localhost:8888
-const proxyPath = 'http://39.106.45.38:8888';
+const proxyPath = 'http://localhost:8888';
 
 module.exports = {
     dev: {
